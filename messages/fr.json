@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "projects": "Projets",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis Sareli",
+    "headline": "Designer UI/UX\net ingénieure IA",
+    "subheadline": "Je crée des interfaces qui allient design soigné et technologie. Je me spécialise dans les systèmes de design, les expériences web et les outils propulsés par l'intelligence artificielle.",
+    "cta_projects": "Voir les projets",
+    "cta_contact": "Me contacter"
+  },
+  "projects": {
+    "section_title": "Projets",
+    "section_subtitle": "Travaux sélectionnés — design, frontend et IA.",
+    "view_project": "Voir le projet",
+    "view_live": "Voir la démo",
+    "view_site": "Visiter le site",
+    "view_repo": "GitHub",
+    "view_legacy": "Version précédente",
+    "status": {
+      "done": "Terminé",
+      "in_progress": "En cours",
+      "concept": "Concept"
+    },
+    "type": {
+      "redesign": "Refonte",
+      "frontend": "Frontend",
+      "ux_case_study": "Étude de cas UX",
+      "external": "Projet externe",
+      "design_system": "Design System"
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "body": "Je suis designer UI/UX avec une expérience en développement frontend et en outils d'intelligence artificielle. Je travaille à l'intersection du design et du code — des systèmes de composants aux applications propulsées par l'IA. Trilingue en espagnol, anglais et français.",
+    "skills_title": "Compétences clés",
+    "skills": ["Design UI/UX", "Next.js", "React", "Systèmes de design", "Tailwind CSS", "Intelligence artificielle"]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Un projet en tête ? Parlons-en.",
+    "name_label": "Nom",
+    "name_placeholder": "Votre nom",
+    "email_label": "Adresse e-mail",
+    "email_placeholder": "vous@email.com",
+    "message_label": "Message",
+    "message_placeholder": "Parlez-moi de votre projet...",
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success_title": "Message envoyé",
+    "success_body": "Merci de m'avoir contactée. Je vous répondrai dans les 48 heures.",
+    "error_title": "Échec de l'envoi",
+    "error_body": "Une erreur s'est produite. Veuillez réessayer ou m'écrire directement par e-mail."
+  },
+  "footer": {
+    "made_with": "Réalisé avec Next.js et Tailwind CSS",
+    "rights": "Tous droits réservés"
+  },
+  "meta": {
+    "site_name": "Sareli Santiago García — Portfolio",
+    "home_title": "Sareli Santiago García — Designer UI/UX & ingénieure IA",
+    "home_description": "Portfolio de Sareli Santiago García, designer UI/UX et ingénieure IA spécialisée dans les systèmes de design, le frontend moderne et les interfaces intelligentes.",
+    "projects_title": "Projets — Sareli Santiago García",
+    "contact_title": "Contact — Sareli Santiago García"
+  }
+}

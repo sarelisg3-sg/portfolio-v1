@@ -1,0 +1,49 @@
+---
+slug: le-point-du-fle
+locale: es
+title: "Rediseño de Le Point du FLE"
+tagline: "De HTML estático a Next.js — plataforma de recursos para aprender francés"
+date: "2026-06"
+status: in-progress
+type: redesign
+tags: ["Next.js", "UI Design", "Rediseño", "React", "Tailwind CSS", "FLE"]
+featured: true
+liveUrl: "https://le-point-du-fle-next-jkjxovbju-sare1.vercel.app"
+legacyRepoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
+coverImage: "/projects/le-point-du-fle/cover.png"
+coverAlt: "Interfaz de búsqueda de recursos para aprender francés — Le Point du FLE rediseñado"
+description: "Rediseño de plataforma educativa de francés: de páginas HTML estáticas a aplicación Next.js con búsqueda, filtros por nivel y navegación por competencias lingüísticas."
+---
+
+## El problema
+
+Le Point du FLE es una plataforma de recursos para aprender francés como lengua extranjera. La versión original consistía en páginas HTML estáticas con estilos inline, sin sistema de búsqueda, sin navegación por nivel y con una arquitectura difícil de mantener.
+
+El contenido existía, pero la experiencia no permitía a los usuarios encontrarlo fácilmente ni explorar el catálogo de forma intuitiva.
+
+## El enfoque
+
+En lugar de partir de cero, el objetivo fue trasladar la plataforma existente a una base técnica moderna — manteniendo la identidad visual del sitio original (paleta azul, tipografía Montserrat) y mejorando la arquitectura de información.
+
+### Decisiones de diseño principales
+
+**Navegación por nivel A1–B2.** Los aprendices de idiomas piensan en términos de su nivel CECR. La nueva homepage organiza el acceso al contenido directamente por nivel, eliminando la fricción de búsqueda inicial.
+
+**Búsqueda centralizada.** Un campo de búsqueda prominente en el hero permite acceder al catálogo completo desde la primera pantalla, sin necesidad de navegar por categorías.
+
+**Exploración por competencia.** Comprensión oral, comprensión escrita, producción oral y producción escrita son las cuatro categorías lingüísticas del CECR. La plataforma las expone directamente en la homepage.
+
+**Sistema de filtros.** La página de resultados incluye chips de filtro por tipo de recurso (gramática, vocabulario, pronunciación, imprimables, canciones, lectura) que se pueden combinar.
+
+## Stack técnico
+
+- **Next.js 16** con App Router — rutas dinámicas para `/niveau/[slug]` y `/search`
+- **React** con Server Components por defecto
+- **Tailwind CSS** — sin CSS modules, tokens de color coherentes con el diseño original
+- **TypeScript** estricto
+
+## Estado actual
+
+El rediseño está en progreso. La homepage y la navegación por niveles están implementadas. La integración de contenido real y la página de resultados de búsqueda están en desarrollo.
+
+La versión HTML original sigue disponible como referencia del antes.

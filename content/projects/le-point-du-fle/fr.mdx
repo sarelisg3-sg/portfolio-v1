@@ -1,0 +1,49 @@
+---
+slug: le-point-du-fle
+locale: fr
+title: "Refonte de Le Point du FLE"
+tagline: "De l'HTML statique à Next.js — plateforme de ressources pour apprendre le français"
+date: "2026-06"
+status: in-progress
+type: redesign
+tags: ["Next.js", "UI Design", "Refonte", "React", "Tailwind CSS", "FLE"]
+featured: true
+liveUrl: "https://le-point-du-fle-next-jkjxovbju-sare1.vercel.app"
+legacyRepoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
+coverImage: "/projects/le-point-du-fle/cover.png"
+coverAlt: "Interface de recherche de ressources pour apprendre le français — refonte de Le Point du FLE"
+description: "Refonte d'une plateforme pédagogique de FLE : de pages HTML statiques à une application Next.js avec recherche, navigation par niveau et filtres par compétence linguistique."
+---
+
+## Le problème
+
+Le Point du FLE est une plateforme de ressources pour apprendre le français langue étrangère. La version originale était composée de pages HTML statiques avec des styles inline, sans moteur de recherche, sans navigation par niveau et avec une base de code difficile à maintenir.
+
+Le contenu existait, mais l'expérience ne permettait pas aux utilisateurs de le retrouver facilement ni d'explorer le catalogue de manière intuitive.
+
+## L'approche
+
+Plutôt que de repartir de zéro, l'objectif était de migrer la plateforme vers une base technique moderne — en conservant l'identité visuelle originale (palette bleue, typographie Montserrat) tout en améliorant l'architecture de l'information.
+
+### Décisions de design principales
+
+**Navigation par niveau A1–B2.** Les apprenants en langues pensent en termes de leur niveau CECR. La nouvelle page d'accueil organise l'accès au contenu directement par niveau, éliminant la friction initiale.
+
+**Recherche centralisée.** Un champ de recherche mis en avant dans le hero donne un accès immédiat au catalogue complet depuis le premier écran.
+
+**Exploration par compétence.** Compréhension orale, compréhension écrite, production orale et production écrite sont les quatre compétences linguistiques du CECR — la plateforme les expose directement sur la page d'accueil.
+
+**Filtres combinables.** La page de résultats propose des chips de filtre par type de ressource (grammaire, vocabulaire, prononciation, imprimables, chansons, lecture) que l'on peut combiner librement.
+
+## Stack technique
+
+- **Next.js 16** avec App Router — routes dynamiques pour `/niveau/[slug]` et `/search`
+- **React** avec Server Components par défaut
+- **Tailwind CSS** — sans modules CSS, tokens de couleur cohérents avec le design original
+- **TypeScript** en mode strict
+
+## État actuel
+
+La refonte est en cours. La page d'accueil et la navigation par niveaux sont implémentées. L'intégration du contenu réel et la page de résultats de recherche sont en développement.
+
+La version HTML originale reste disponible comme référence de l'avant.

@@ -1,0 +1,49 @@
+---
+slug: le-point-du-fle
+locale: en
+title: "Le Point du FLE Redesign"
+tagline: "From static HTML to Next.js — a French learning resource platform"
+date: "2026-06"
+status: in-progress
+type: redesign
+tags: ["Next.js", "UI Design", "Redesign", "React", "Tailwind CSS", "FLE"]
+featured: true
+liveUrl: "https://le-point-du-fle-next-jkjxovbju-sare1.vercel.app"
+legacyRepoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
+coverImage: "/projects/le-point-du-fle/cover.png"
+coverAlt: "Search interface for French learning resources — Le Point du FLE redesign"
+description: "Redesign of a French language learning platform: from static HTML pages to a Next.js application with search, level-based navigation and linguistic competency filters."
+---
+
+## The problem
+
+Le Point du FLE is a resource platform for learning French as a foreign language. The original version consisted of static HTML pages with inline styles, no search functionality, no level-based navigation and a codebase that was hard to maintain.
+
+The content existed, but the experience made it difficult for users to find it or explore the catalogue intuitively.
+
+## The approach
+
+Rather than starting from scratch, the goal was to migrate the platform to a modern technical foundation — preserving the original visual identity (blue palette, Montserrat typography) while improving the information architecture.
+
+### Key design decisions
+
+**A1–B2 level navigation.** Language learners think in terms of their CEFR level. The new homepage organises content access directly by level, removing initial search friction.
+
+**Centralised search.** A prominent search field in the hero gives immediate access to the full catalogue from the first screen.
+
+**Competency-based exploration.** Listening comprehension, reading comprehension, speaking and writing are the four CEFR linguistic categories — the platform surfaces them directly on the homepage.
+
+**Filter chips.** The results page includes filter chips by resource type (grammar, vocabulary, pronunciation, printables, songs, reading) that can be combined freely.
+
+## Technical stack
+
+- **Next.js 16** with App Router — dynamic routes for `/niveau/[slug]` and `/search`
+- **React** with Server Components by default
+- **Tailwind CSS** — no CSS modules, colour tokens consistent with the original design
+- **TypeScript** strict mode
+
+## Current status
+
+The redesign is in progress. The homepage and level navigation are implemented. Real content integration and the search results page are under development.
+
+The original HTML version remains available as a before reference.
