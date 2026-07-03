@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getFeaturedProjects } from "@/lib/mdx";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import type { Locale } from "@/lib/i18n/routing";
@@ -31,28 +32,42 @@ export default async function HomePage({
     <>
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-20">
-        <p className="text-sm font-medium text-[var(--accent)] mb-4">
-          {t("hero.greeting")}
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-[var(--foreground)] mb-6 whitespace-pre-line">
-          {t("hero.headline")}
-        </h1>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mb-10 leading-relaxed">
-          {t("hero.subheadline")}
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <a
-            href={`#projects`}
-            className="px-5 py-2.5 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
-          >
-            {t("hero.cta_projects")}
-          </a>
-          <Link
-            href={`/${locale}/contact`}
-            className="px-5 py-2.5 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
-          >
-            {t("hero.cta_contact")}
-          </Link>
+        <div className="flex flex-col-reverse sm:flex-row items-center gap-12">
+          <div className="flex-1">
+            <p className="text-sm font-medium text-[var(--accent)] mb-4">
+              {t("hero.greeting")}
+            </p>
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-[var(--foreground)] mb-6 whitespace-pre-line">
+              {t("hero.headline")}
+            </h1>
+            <p className="text-lg text-[var(--muted)] max-w-2xl mb-10 leading-relaxed">
+              {t("hero.subheadline")}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={`#projects`}
+                className="px-5 py-2.5 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors"
+              >
+                {t("hero.cta_projects")}
+              </a>
+              <Link
+                href={`/${locale}/contact`}
+                className="px-5 py-2.5 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
+              >
+                {t("hero.cta_contact")}
+              </Link>
+            </div>
+          </div>
+          <div className="shrink-0">
+            <Image
+              src="/sareli.png"
+              alt="Sareli Santiago García"
+              width={280}
+              height={280}
+              className="rounded-2xl object-cover object-top w-56 h-56 sm:w-64 sm:h-64"
+              priority
+            />
+          </div>
         </div>
       </section>
 
