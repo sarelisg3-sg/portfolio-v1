@@ -2,48 +2,54 @@
 slug: le-point-du-fle
 locale: fr
 title: "Refonte de Le Point du FLE"
-tagline: "De l'HTML statique à Next.js — plateforme de ressources pour apprendre le français"
+tagline: "Refonte UX d'un répertoire de ressources pour apprendre le français"
 date: "2026-06"
 status: in-progress
 type: redesign
-tags: ["Next.js", "UI Design", "Refonte", "React", "Tailwind CSS", "FLE"]
+tags: ["UX Research", "Refonte", "Architecture de l'information", "Tests utilisateurs", "Next.js", "Figma"]
 featured: true
-liveUrl: "https://le-point-du-fle.vercel.app/home.html"
-legacyRepoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
+liveUrl: "https://le-point-du-fle-next.vercel.app"
+repoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle-next"
 coverImage: "/projects/le-point-du-fle/cover.png"
 coverAlt: "Interface de recherche de ressources pour apprendre le français — refonte de Le Point du FLE"
-description: "Refonte d'une plateforme pédagogique de FLE : de pages HTML statiques à une application Next.js avec recherche, navigation par niveau et filtres par compétence linguistique."
+description: "Refonte UX d'un répertoire gratuit de ressources pour apprendre le français, centré sur le flux de recherche et de téléchargement de contenus par niveau et compétence."
 ---
+
+> **Périmètre du prototype :** cette refonte couvre le flux de recherche et de téléchargement de ressources. Toutes les sections ne sont pas interactives — certains boutons et pages sont hors périmètre de cette itération.
 
 ## Le problème
 
-Le Point du FLE est une plateforme de ressources pour apprendre le français langue étrangère. La version originale était composée de pages HTML statiques avec des styles inline, sans moteur de recherche, sans navigation par niveau et avec une base de code difficile à maintenir.
+Le Point du FLE est un répertoire gratuit de ressources numériques pour apprendre et enseigner le français langue étrangère. Le site regroupait un grand nombre de contenus utiles, mais son architecture rendait difficile de les trouver rapidement.
 
-Le contenu existait, mais l'expérience ne permettait pas aux utilisateurs de le retrouver facilement ni d'explorer le catalogue de manière intuitive.
+Des catégories trop larges, l'absence de hiérarchie visuelle et le manque de filtres clairs obligeaient les utilisateurs à explorer de trop nombreux chemins avant d'accéder à une ressource pertinente.
 
-## L'approche
+Cela générait une **surcharge cognitive, une perte de temps et de l'incertitude** au moment de choisir des contenus par niveau, compétence ou type d'activité.
 
-Plutôt que de repartir de zéro, l'objectif était de migrer la plateforme vers une base technique moderne — en conservant l'identité visuelle originale (palette bleue, typographie Montserrat) tout en améliorant l'architecture de l'information.
+## Utilisateurs cibles
 
-### Décisions de design principales
+La refonte s'est centrée sur les enseignants et apprenants de français qui utilisent des ressources numériques pour préparer des cours, pratiquer de façon autonome ou trouver des contenus spécifiques selon leur niveau.
 
-**Navigation par niveau A1–B2.** Les apprenants en langues pensent en termes de leur niveau CECR. La nouvelle page d'accueil organise l'accès au contenu directement par niveau, éliminant la friction initiale.
+Le profil principal identifié était celui des **enseignants de français expérimentés**, qui ont besoin de ressources fiables, organisées et prêtes à l'emploi sans y consacrer trop de temps.
 
-**Recherche centralisée.** Un champ de recherche mis en avant dans le hero donne un accès immédiat au catalogue complet depuis le premier écran.
+## Approche de la refonte
 
-**Exploration par compétence.** Compréhension orale, compréhension écrite, production orale et production écrite sont les quatre compétences linguistiques du CECR — la plateforme les expose directement sur la page d'accueil.
+La proposition a réorganisé l'expérience autour de trois besoins clés :
 
-**Filtres combinables.** La page de résultats propose des chips de filtre par type de ressource (grammaire, vocabulaire, prononciation, imprimables, chansons, lecture) que l'on peut combiner librement.
+1. **Rechercher par niveau** — les apprenants en langues pensent en termes de leur niveau CECR (A1–B2). La nouvelle page d'accueil organise l'accès au contenu directement par niveau.
+2. **Filtrer par type de ressource** — chips de filtre combinables : grammaire, vocabulaire, prononciation, imprimables, chansons et lecture.
+3. **Évaluer rapidement si un contenu convient** — cartes avec métadonnées visibles et prévisualisation de la ressource avant téléchargement.
 
-## Stack technique
+Une nouvelle architecture de l'information, un flux clair de recherche et téléchargement, et une barre de recherche centralisée accessible dès le premier écran ont été conçus.
 
-- **Next.js 16** avec App Router — routes dynamiques pour `/niveau/[slug]` et `/search`
-- **React** avec Server Components par défaut
-- **Tailwind CSS** — sans modules CSS, tokens de couleur cohérents avec le design original
-- **TypeScript** en mode strict
+## Validation
+
+Le prototype a été validé avec **5 utilisateurs réels**.
+
+- **100 %** ont réussi à trouver une ressource sur le *passé composé* au niveau A2
+- **100 %** ont identifié comment la télécharger
+
+À partir des tests, **15 itérations** ont été réalisées pour améliorer la navigation par niveau, la précision des résultats, le feedback système et la confiance lors de la sélection d'une ressource.
 
 ## État actuel
 
-La refonte est en cours. La page d'accueil et la navigation par niveaux sont implémentées. L'intégration du contenu réel et la page de résultats de recherche sont en développement.
-
-La version HTML originale reste disponible comme référence de l'avant.
+La refonte est en cours. La page d'accueil et la navigation par niveaux sont implémentées en Next.js. L'intégration du contenu réel et la page de résultats de recherche sont en développement.

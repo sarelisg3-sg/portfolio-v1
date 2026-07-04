@@ -2,48 +2,54 @@
 slug: le-point-du-fle
 locale: en
 title: "Le Point du FLE Redesign"
-tagline: "From static HTML to Next.js — a French learning resource platform"
+tagline: "UX redesign of a resource directory for learning French"
 date: "2026-06"
 status: in-progress
 type: redesign
-tags: ["Next.js", "UI Design", "Redesign", "React", "Tailwind CSS", "FLE"]
+tags: ["UX Research", "Redesign", "Information Architecture", "Usability Testing", "Next.js", "Figma"]
 featured: true
-liveUrl: "https://le-point-du-fle.vercel.app/home.html"
-legacyRepoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
+liveUrl: "https://le-point-du-fle-next.vercel.app"
+repoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle-next"
 coverImage: "/projects/le-point-du-fle/cover.png"
 coverAlt: "Search interface for French learning resources — Le Point du FLE redesign"
-description: "Redesign of a French language learning platform: from static HTML pages to a Next.js application with search, level-based navigation and linguistic competency filters."
+description: "UX redesign of a free French learning resource directory, focused on the search and download flow for materials organized by level and language skill."
 ---
+
+> **Prototype scope:** this redesign covers the resource search and download flow. Not all sections are interactive — some buttons and pages are outside the scope of this iteration.
 
 ## The problem
 
-Le Point du FLE is a resource platform for learning French as a foreign language. The original version consisted of static HTML pages with inline styles, no search functionality, no level-based navigation and a codebase that was hard to maintain.
+Le Point du FLE is a free directory of digital resources for learning and teaching French as a foreign language. The site gathered a large number of useful materials, but its architecture made them hard to find quickly.
 
-The content existed, but the experience made it difficult for users to find it or explore the catalogue intuitively.
+Broad categories, lack of visual hierarchy, and the absence of clear filters forced users to explore too many paths before reaching a relevant resource.
 
-## The approach
+This created **cognitive overload, wasted time, and uncertainty** when selecting materials by level, skill, or activity type.
 
-Rather than starting from scratch, the goal was to migrate the platform to a modern technical foundation — preserving the original visual identity (blue palette, Montserrat typography) while improving the information architecture.
+## Target users
 
-### Key design decisions
+The redesign focused on French teachers and students who use digital resources to prepare lessons, practice independently, or find specific materials for their level.
 
-**A1–B2 level navigation.** Language learners think in terms of their CEFR level. The new homepage organises content access directly by level, removing initial search friction.
+The primary profile identified was **experienced French teachers** who need reliable, organized, ready-to-use resources without spending too much time searching.
 
-**Centralised search.** A prominent search field in the hero gives immediate access to the full catalogue from the first screen.
+## Redesign approach
 
-**Competency-based exploration.** Listening comprehension, reading comprehension, speaking and writing are the four CEFR linguistic categories — the platform surfaces them directly on the homepage.
+The proposal reorganized the experience around three key needs:
 
-**Filter chips.** The results page includes filter chips by resource type (grammar, vocabulary, pronunciation, printables, songs, reading) that can be combined freely.
+1. **Search by level** — language learners think in terms of their CEFR level (A1–B2). The new homepage organizes content access directly by level.
+2. **Filter by resource type** — combinable filter chips for grammar, vocabulary, pronunciation, printables, songs, and reading.
+3. **Quickly evaluate whether a material fits** — cards with visible metadata and a resource preview before downloading.
 
-## Technical stack
+A new information architecture, a clear search-and-download flow, and a centralized search bar accessible from the first screen were designed.
 
-- **Next.js 16** with App Router — dynamic routes for `/niveau/[slug]` and `/search`
-- **React** with Server Components by default
-- **Tailwind CSS** — no CSS modules, colour tokens consistent with the original design
-- **TypeScript** strict mode
+## Validation
+
+The prototype was validated with **5 real users**.
+
+- **100%** successfully found a resource on *passé composé* at A2 level
+- **100%** identified how to download it
+
+Based on the tests, **15 iterations** were made focused on improving level navigation, search result accuracy, system feedback, and user confidence when selecting a resource.
 
 ## Current status
 
-The redesign is in progress. The homepage and level navigation are implemented. Real content integration and the search results page are under development.
-
-The original HTML version remains available as a before reference.
+The redesign is in progress. The homepage and level navigation are implemented in Next.js. Real content integration and the search results page are under development.
