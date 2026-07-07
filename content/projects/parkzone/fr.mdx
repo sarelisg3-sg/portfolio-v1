@@ -1,0 +1,89 @@
+---
+slug: parkzone
+locale: fr
+title: "ParkZone"
+tagline: "Une app unifiée de parcmètres pour Mexico — de la recherche au code"
+date: "2026-07"
+status: done
+type: ux-case-study
+tags: ["UX Research", "Card Sorting", "Architecture de l'information", "Tests utilisateurs", "Figma", "Next.js"]
+featured: true
+liveUrl: "https://parkzone-rho.vercel.app"
+repoUrl: "https://github.com/sarelisg3-sg/parkzone"
+coverImage: "/projects/parkzone/cover.png"
+coverAlt: "Écran d'accueil de ParkZone sur un iPhone — carte de Polanco avec un bouton Stationner"
+description: "Étude de cas UX complète : une app qui unifie les parcmètres fragmentés de Mexico. Recherche, card sorting, prototype Figma validé avec des utilisateurs, et reconstruction complète du prototype en app interactive Next.js."
+---
+
+> **Démo interactive :** le prototype complet est implémenté en code et utilisable
+> via le lien ci-dessus — onboarding, flux de stationnement avec compte à rebours
+> en direct, extension de temps et gestion de compte.
+
+## Le problème
+
+À Mexico, les parcmètres sont gérés par **des applications différentes selon la
+zone**. Un conducteur qui se déplace dans la ville a besoin de plusieurs apps,
+chacune avec son inscription, son interface et son mode de paiement — source de
+confusion, de perte de temps et d'**amendes évitables**.
+
+L'analyse des apps existantes (Blinkay, Parkum, Mueve Ciudad) a révélé des
+plaintes récurrentes : pannes de GPS, erreurs de synchronisation des horaires,
+problèmes de rechargement du solde et interfaces compliquées.
+
+## Utilisateur cible
+
+Le projet s'est d'abord concentré sur l'arrondissement Miguel Hidalgo — la zone
+comptant le plus de parcmètres de la ville, avec un usage estimé à plus de
+**5 millions de sessions par an**.
+
+Le profil principal : **Daniela, 34 ans, architecte** et conductrice régulière.
+Elle a besoin de gérer son stationnement de façon centralisée, car le chaos
+routier et la multiplication des apps lui font perdre un temps précieux.
+
+## Architecture de l'information
+
+La structure de l'app a été définie par **card sorting** : matrice de similarité,
+dendrogrammes (Actual Agreement Method) et standardization grid. Les conclusions
+ont guidé le design :
+
+1. Les fonctions du flux de stationnement (temps, tarifs, paiement, extension)
+   sont perçues comme un groupe cohérent — elles doivent rester ensemble.
+2. Les fonctions administratives (compte, moyens de paiement, véhicule) forment
+   des sections séparées.
+3. Les actions les plus fréquentes (géolocalisation, stationner, paiement)
+   doivent être accessibles dès le premier écran.
+
+## La solution (MVP)
+
+Une app qui détecte le parcmètre par **géolocalisation automatique**, affiche
+tarifs et horaires, permet de **sélectionner la durée** de stationnement et
+**paie automatiquement** avec la carte enregistrée — dans toutes les zones de la
+ville.
+
+## Validation
+
+Le prototype haute fidélité dans Figma a été évalué par une **évaluation
+heuristique** (Nielsen) et des **tests d'utilisabilité avec 5 utilisateurs** sur
+un scénario réel : se garer au parcmètre A248, payer 1 heure, vérifier le temps
+restant, prolonger de 30 minutes et consulter l'historique des paiements.
+
+- **127 secondes** en moyenne pour compléter les 5 tâches
+- **4 tâches sur 5** avec 100 % de réussite (la cinquième : 80 %)
+- **4,2/5** de satisfaction moyenne
+
+Les résultats ont conduit à des améliorations de visibilité des boutons clés, de
+taille de texte et de feedback système.
+
+## Du prototype au code
+
+Le prototype complet — les ~39 écrans, y compris l'onboarding en 4 étapes — est
+reconstruit en **véritable app interactive Next.js**, présentée dans un cadre
+d'iPhone comme le prototype original. La session de stationnement utilise un
+**compte à rebours en direct**, le total est calculé en temps réel selon le tarif
+(3,50 $ / 15 min), et des constats de l'évaluation heuristique ont été traités
+dans le code (par exemple, prévention des erreurs : impossible de confirmer sans
+sélectionner une durée).
+
+Les tokens de design et les composants suivent l'architecture de mon
+[design system personnel](https://design-system-sare1.vercel.app), avec la gamme
+de marque recalculée au teal de ParkZone.

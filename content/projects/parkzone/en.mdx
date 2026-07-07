@@ -1,0 +1,87 @@
+---
+slug: parkzone
+locale: en
+title: "ParkZone"
+tagline: "A unified parking-meter app for Mexico City — from research to code"
+date: "2026-07"
+status: done
+type: ux-case-study
+tags: ["UX Research", "Card Sorting", "Information Architecture", "Usability Testing", "Figma", "Next.js"]
+featured: true
+liveUrl: "https://parkzone-rho.vercel.app"
+repoUrl: "https://github.com/sarelisg3-sg/parkzone"
+coverImage: "/projects/parkzone/cover.png"
+coverAlt: "ParkZone home screen on an iPhone — Polanco map with a Park button"
+description: "Complete UX case study: an app unifying Mexico City's fragmented parking meters. Research, card sorting, a user-validated Figma prototype, and a full rebuild of the prototype as an interactive Next.js app."
+---
+
+> **Interactive demo:** the complete prototype is implemented in code and usable at
+> the link above — onboarding, parking flow with a live countdown, time extension,
+> and account management.
+
+## The problem
+
+In Mexico City, parking meters are managed by **different apps depending on the
+zone**. A driver moving through the city needs several apps, each with its own
+signup, interface and payment method — causing confusion, wasted time and
+**avoidable fines**.
+
+Analysis of existing apps (Blinkay, Parkum, Mueve Ciudad) revealed recurring
+complaints: GPS failures, schedule sync errors, balance top-up problems and
+complicated interfaces.
+
+## Target user
+
+The project initially focused on the Miguel Hidalgo borough — the area with the
+most parking meters in the city, with an estimated usage above **5 million
+sessions per year**.
+
+The primary profile: **Daniela, 34, an architect** and frequent driver. She needs
+to manage parking centrally because traffic chaos and juggling multiple apps take
+time away from her work.
+
+## Information architecture
+
+The app's structure was defined through **card sorting**: similarity matrix,
+dendrograms (Actual Agreement Method) and a standardization grid. The conclusions
+guided the design:
+
+1. Parking-flow functions (time, rates, payment, extension) are perceived as one
+   coherent group — they must live together.
+2. Administrative functions (account, payment methods, vehicle) form separate
+   sections.
+3. The most frequent actions (geolocation, park, payment) must be reachable from
+   the first screen.
+
+## The solution (MVP)
+
+An app that detects the parking meter via **automatic geolocation**, shows rates
+and schedules, lets the user **select parking time** and **pays automatically**
+with the registered card — across every zone in the city.
+
+## Validation
+
+The high-fidelity Figma prototype was evaluated with a **heuristic evaluation**
+(Nielsen) and **usability tests with 5 users** on a real scenario: park at meter
+A248, pay for 1 hour, check remaining time, extend by 30 minutes and review
+payment history.
+
+- **127 seconds** on average to complete all 5 tasks
+- **4 of 5 tasks** at 100% success (the fifth: 80%)
+- **4.2/5** average satisfaction
+
+Findings led to improvements in key-button visibility, text size and system
+feedback.
+
+## From prototype to code
+
+The complete prototype — all ~39 screens, including the 4-step onboarding — is
+rebuilt as a **real interactive Next.js app**, presented in an iPhone frame like
+the original prototype. The parking session runs a **live countdown**, the total
+is computed in real time from the rate ($3.50 / 15 min), and heuristic-evaluation
+findings were addressed in code (e.g. error prevention: you cannot confirm
+without selecting a time).
+
+Design tokens and components follow the architecture of my
+[personal design system](https://design-system-sare1.vercel.app), with the brand
+scale recalculated to ParkZone's teal.
