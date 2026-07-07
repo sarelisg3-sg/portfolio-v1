@@ -6,14 +6,14 @@
   },
   "hero": {
     "greeting": "Hi, I'm Sareli",
-    "headline": "UI/UX Designer\n& AI Engineer",
-    "subheadline": "I build interfaces that combine thoughtful design with technology. I specialise in design systems, web experiences and AI-powered tools.",
+    "headline": "UI/UX Designer\n& Design Engineer",
+    "subheadline": "Graphic designer specialising in UX/UI and development. I take projects from concept to implementation with a sharp eye for detail and a commitment to excellence. Trilingual — native Spanish, native French, B2 English.",
     "cta_projects": "View projects",
     "cta_contact": "Get in touch"
   },
   "projects": {
     "section_title": "Projects",
-    "section_subtitle": "Selected work — design, frontend and AI.",
+    "section_subtitle": "Selected work — design, branding and user experience.",
     "view_project": "View project",
     "view_live": "Live demo",
     "view_site": "Visit site",
@@ -34,9 +34,9 @@
   },
   "about": {
     "title": "About",
-    "body": "I'm a UI/UX designer with experience in frontend development and AI tooling. I work at the intersection of design and code — from component systems to AI-powered applications. Trilingual in Spanish, English and French.",
-    "skills_title": "Core skills",
-    "skills": ["UI/UX Design", "Next.js", "React", "Design Systems", "Tailwind CSS", "Artificial Intelligence"]
+    "body": "I'm a graphic designer by training, specialising in audiovisual media, UX/UI and development. I'm passionate about projects in education, languages, music and culture. I'm responsible, detail-oriented and committed to excellence in every project I take on. I work primarily remotely and collaborate well both independently and within teams. I speak Spanish and French natively, English at B2 level, and I'm learning German and Portuguese.",
+    "skills_title": "Tools & skills",
+    "skills": ["Figma", "UX Research", "Branding", "Adobe Suite", "Editorial Design", "Wix", "GitHub & Vercel", "AI Tools"]
   },
   "contact": {
     "title": "Contact",
@@ -60,8 +60,8 @@
   },
   "meta": {
     "site_name": "Sareli Santiago García — Portfolio",
-    "home_title": "Sareli Santiago García — UI/UX Designer & AI Engineer",
-    "home_description": "Portfolio of Sareli Santiago García, UI/UX designer and AI engineer specialising in design systems, modern frontend and AI-powered interfaces.",
+    "home_title": "Sareli Santiago García — UI/UX Designer & Design Engineer",
+    "home_description": "Portfolio of Sareli Santiago García, UI/UX Designer and Design Engineer specialising in branding, user experience and projects in education, languages and culture.",
     "projects_title": "Projects",
     "contact_title": "Contact"
   }

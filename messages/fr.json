@@ -6,14 +6,14 @@
   },
   "hero": {
     "greeting": "Bonjour, je suis Sareli",
-    "headline": "Designer UI/UX\net ingénieure IA",
-    "subheadline": "Je crée des interfaces qui allient design soigné et technologie. Je me spécialise dans les systèmes de design, les expériences web et les outils propulsés par l'intelligence artificielle.",
+    "headline": "UI/UX Designer\net Design Engineer",
+    "subheadline": "Designer graphique spécialisée en UX/UI et développement. Je mène les projets du concept à l'implémentation avec une grande attention au détail et un engagement fort envers l'excellence. Trilingue — espagnol natif, français natif, anglais B2.",
     "cta_projects": "Voir les projets",
     "cta_contact": "Me contacter"
   },
   "projects": {
     "section_title": "Projets",
-    "section_subtitle": "Travaux sélectionnés — design, frontend et IA.",
+    "section_subtitle": "Travaux sélectionnés — design, branding et expérience utilisateur.",
     "view_project": "Voir le projet",
     "view_live": "Voir la démo",
     "view_site": "Visiter le site",
@@ -34,9 +34,9 @@
   },
   "about": {
     "title": "À propos",
-    "body": "Je suis designer UI/UX avec une expérience en développement frontend et en outils d'intelligence artificielle. Je travaille à l'intersection du design et du code — des systèmes de composants aux applications propulsées par l'IA. Trilingue en espagnol, anglais et français.",
-    "skills_title": "Compétences clés",
-    "skills": ["Design UI/UX", "Next.js", "React", "Systèmes de design", "Tailwind CSS", "Intelligence artificielle"]
+    "body": "Designer graphique de formation, spécialisée en médias audiovisuels, UX/UI et développement. Je suis passionnée par les projets liés à l'éducation, aux langues, à la musique et à la culture. Rigoureuse, engagée et très attentive aux détails, je vise l'excellence dans chaque projet. Je travaille principalement à distance et collabore aussi bien en autonomie qu'en équipe. Je parle espagnol et français comme langues maternelles, anglais à un niveau B2, et j'apprends l'allemand et le portugais.",
+    "skills_title": "Outils et compétences",
+    "skills": ["Figma", "Recherche UX", "Branding", "Adobe Suite", "Design éditorial", "Wix", "GitHub & Vercel", "Outils IA"]
   },
   "contact": {
     "title": "Contact",
@@ -60,8 +60,8 @@
   },
   "meta": {
     "site_name": "Sareli Santiago García — Portfolio",
-    "home_title": "Sareli Santiago García — Designer UI/UX & ingénieure IA",
-    "home_description": "Portfolio de Sareli Santiago García, designer UI/UX et ingénieure IA spécialisée dans les systèmes de design, le frontend moderne et les interfaces intelligentes.",
+    "home_title": "Sareli Santiago García — UI/UX Designer & Design Engineer",
+    "home_description": "Portfolio de Sareli Santiago García, UI/UX Designer et Design Engineer spécialisée en branding, expérience utilisateur et projets liés à l'éducation, aux langues et à la culture.",
     "projects_title": "Projets",
     "contact_title": "Contact"
   }

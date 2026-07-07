@@ -6,14 +6,14 @@
   },
   "hero": {
     "greeting": "Hola, soy Sareli",
-    "headline": "Diseñadora UI/UX\ny AI Engineer",
-    "subheadline": "Construyo interfaces que combinan diseño cuidadoso con tecnología. Me especializo en sistemas de diseño, experiencias web y herramientas con inteligencia artificial.",
+    "headline": "UI/UX Designer\ny Design Engineer",
+    "subheadline": "Diseñadora gráfica con especialización en UX/UI y desarrollo. Llevo proyectos del concepto a la implementación con atención al detalle y a la excelencia. Trilingüe — español nativo, francés nativo, inglés B2.",
     "cta_projects": "Ver proyectos",
     "cta_contact": "Contactar"
   },
   "projects": {
     "section_title": "Proyectos",
-    "section_subtitle": "Trabajo seleccionado — diseño, frontend e IA.",
+    "section_subtitle": "Trabajo seleccionado — diseño, branding y experiencia de usuario.",
     "view_project": "Ver proyecto",
     "view_live": "Ver demo",
     "view_site": "Ver sitio",
@@ -34,9 +34,9 @@
   },
   "about": {
     "title": "Sobre mí",
-    "body": "Soy diseñadora UI/UX con experiencia en desarrollo frontend y herramientas de inteligencia artificial. Trabajo en la intersección entre diseño y código: desde sistemas de componentes hasta aplicaciones con IA integrada. Trilingüe en español, inglés y francés.",
-    "skills_title": "Habilidades principales",
-    "skills": ["Diseño UI/UX", "Next.js", "React", "Sistemas de diseño", "Tailwind CSS", "Inteligencia artificial"]
+    "body": "Soy diseñadora gráfica de formación con especialización en medios audiovisuales, UX/UI y desarrollo. Me apasiona trabajar en proyectos relacionados con educación, idiomas, música y cultura. Soy responsable, comprometida y muy atenta a los detalles — me interesa la excelencia en cada proyecto que tomo. Trabajo principalmente en remoto y colaboro bien tanto de forma independiente como en equipo. Hablo español e inglés (B2) a nivel nativo de francés, y estoy aprendiendo alemán y portugués.",
+    "skills_title": "Herramientas y habilidades",
+    "skills": ["Figma", "Investigación UX", "Branding", "Adobe Suite", "Diseño editorial", "Wix", "GitHub & Vercel", "Herramientas IA"]
   },
   "contact": {
     "title": "Contacto",
@@ -60,8 +60,8 @@
   },
   "meta": {
     "site_name": "Sareli Santiago García — Portfolio",
-    "home_title": "Sareli Santiago García — Diseñadora UI/UX & AI Engineer",
-    "home_description": "Portfolio profesional de Sareli Santiago García, diseñadora UI/UX y AI engineer especializada en sistemas de diseño, frontend moderno e interfaces con inteligencia artificial.",
+    "home_title": "Sareli Santiago García — UI/UX Designer & Design Engineer",
+    "home_description": "Portfolio de Sareli Santiago García, diseñadora UI/UX y Design Engineer especializada en branding, experiencia de usuario y proyectos de educación, idiomas y cultura.",
     "projects_title": "Proyectos",
     "contact_title": "Contacto"
   }
