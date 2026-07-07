@@ -27,16 +27,13 @@ export function ProjectCard({
   const t = useTranslations("projects");
   const { frontmatter, slug } = project;
 
-  const primaryLink =
-    frontmatter.externalUrl ??
-    frontmatter.liveUrl ??
-    `/${locale}/projects/${slug}`;
-
+  const externalLink = frontmatter.externalUrl ?? frontmatter.liveUrl ?? null;
   const isExternal = !!frontmatter.externalUrl;
   const typeKey = TYPE_KEY_MAP[frontmatter.type] ?? frontmatter.type;
+  const detailHref = `/${locale}/projects/${slug}`;
 
   return (
-    <article className="group flex flex-col rounded-2xl border border-[var(--border)] overflow-hidden hover:shadow-md transition-shadow bg-white">
+    <article className="group relative flex flex-col rounded-2xl border border-[var(--border)] overflow-hidden hover:shadow-md transition-shadow bg-white">
       {/* Cover */}
       <div className="relative aspect-[16/9] bg-gray-100 overflow-hidden">
         {frontmatter.coverImage ? (
@@ -55,7 +52,7 @@ export function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-6 gap-4">
+      <div className="flex flex-col flex-1 p-6 gap-4 pointer-events-none">
         {/* Badges */}
         <div className="flex flex-wrap gap-2">
           <span className="text-xs font-medium text-[var(--accent)]">
@@ -94,24 +91,24 @@ export function ProjectCard({
         </div>
 
         {/* Links */}
-        <div className="mt-auto flex flex-wrap gap-3 pt-2">
-          <a
-            href={primaryLink}
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noopener noreferrer" : undefined}
+        <div className="relative z-10 mt-auto flex flex-wrap gap-3 pt-2 pointer-events-auto">
+          {externalLink && (
+            <a
+              href={externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            >
+              {isExternal ? t("view_site") : t("view_live")} ↗
+            </a>
+          )}
+
+          <Link
+            href={detailHref}
             className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
           >
-            {isExternal ? t("view_site") : t("view_live")} →
-          </a>
-
-          {!isExternal && (
-            <Link
-              href={`/${locale}/projects/${slug}`}
-              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-            >
-              {t("view_project")}
-            </Link>
-          )}
+            {t("view_project")} →
+          </Link>
 
           {frontmatter.legacyRepoUrl && (
             <a
@@ -136,6 +133,13 @@ export function ProjectCard({
           )}
         </div>
       </div>
+
+      {/* Stretched link — click anywhere on the card opens the case study */}
+      <Link
+        href={detailHref}
+        className="absolute inset-0 z-0"
+        aria-label={frontmatter.title}
+      />
     </article>
   );
 }
