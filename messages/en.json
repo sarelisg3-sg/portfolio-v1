@@ -7,7 +7,7 @@
   "hero": {
     "greeting": "Hi, I'm Sareli",
     "headline": "UI/UX Designer\n& Design Engineer",
-    "subheadline": "Graphic designer specialising in UX/UI and development. I take projects from concept to implementation with a sharp eye for detail and a commitment to excellence. Trilingual — native Spanish, native French, B2 English.",
+    "subheadline": "Graphic designer specialising in UX/UI and development. I take projects from concept to implementation combining Figma, UX research and code, with a sharp eye for detail and a commitment to excellence.",
     "cta_projects": "View projects",
     "cta_contact": "Get in touch"
   },
@@ -34,7 +34,7 @@
   },
   "about": {
     "title": "About",
-    "body": "I'm a graphic designer by training, specialising in audiovisual media, UX/UI and development. I'm passionate about projects in education, languages, music and culture. I'm responsible, detail-oriented and committed to excellence in every project I take on. I work primarily remotely and collaborate well both independently and within teams. I speak Spanish and French natively, English at B2 level, and I'm learning German and Portuguese.",
+    "body": "I'm a graphic designer by training, specialising in audiovisual media, UX/UI and development. I work with Figma, UX research, branding, Adobe Suite and AI tools to take a project from concept to production. I'm passionate about projects in education, languages, music and culture. I'm responsible, detail-oriented and committed to excellence in every project I take on. I work primarily remotely and collaborate well both independently and within teams. Native Spanish, C2 French, B2 English — currently learning German and Portuguese.",
     "skills_title": "Tools & skills",
     "skills": ["Figma", "UX Research", "Branding", "Adobe Suite", "Editorial Design", "Wix", "GitHub & Vercel", "AI Tools"]
   },

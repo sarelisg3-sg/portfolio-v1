@@ -7,7 +7,7 @@
   "hero": {
     "greeting": "Bonjour, je suis Sareli",
     "headline": "UI/UX Designer\net Design Engineer",
-    "subheadline": "Designer graphique spécialisée en UX/UI et développement. Je mène les projets du concept à l'implémentation avec une grande attention au détail et un engagement fort envers l'excellence. Trilingue — espagnol natif, français natif, anglais B2.",
+    "subheadline": "Designer graphique spécialisée en UX/UI et développement. Je mène les projets du concept à l'implémentation en combinant Figma, recherche UX et code, avec une grande attention au détail et un engagement fort envers l'excellence.",
     "cta_projects": "Voir les projets",
     "cta_contact": "Me contacter"
   },
@@ -34,7 +34,7 @@
   },
   "about": {
     "title": "À propos",
-    "body": "Designer graphique de formation, spécialisée en médias audiovisuels, UX/UI et développement. Je suis passionnée par les projets liés à l'éducation, aux langues, à la musique et à la culture. Rigoureuse, engagée et très attentive aux détails, je vise l'excellence dans chaque projet. Je travaille principalement à distance et collabore aussi bien en autonomie qu'en équipe. Je parle espagnol et français comme langues maternelles, anglais à un niveau B2, et j'apprends l'allemand et le portugais.",
+    "body": "Designer graphique de formation, spécialisée en médias audiovisuels, UX/UI et développement. Je travaille avec Figma, la recherche UX, le branding, la suite Adobe et des outils d'IA pour mener un projet du concept à la production. Je suis passionnée par les projets liés à l'éducation, aux langues, à la musique et à la culture. Rigoureuse, engagée et très attentive aux détails, je vise l'excellence dans chaque projet. Je travaille principalement à distance et collabore aussi bien en autonomie qu'en équipe. Espagnole native, français C2, anglais B2 — j'apprends actuellement l'allemand et le portugais.",
     "skills_title": "Outils et compétences",
     "skills": ["Figma", "Recherche UX", "Branding", "Adobe Suite", "Design éditorial", "Wix", "GitHub & Vercel", "Outils IA"]
   },

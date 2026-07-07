@@ -7,7 +7,7 @@
   "hero": {
     "greeting": "Hola, soy Sareli",
     "headline": "UI/UX Designer\ny Design Engineer",
-    "subheadline": "Diseñadora gráfica con especialización en UX/UI y desarrollo. Llevo proyectos del concepto a la implementación con atención al detalle y a la excelencia. Trilingüe — español nativo, francés nativo, inglés B2.",
+    "subheadline": "Diseñadora gráfica con especialización en UX/UI y desarrollo. Llevo proyectos del concepto a la implementación combinando Figma, investigación UX y código, con atención al detalle y a la excelencia.",
     "cta_projects": "Ver proyectos",
     "cta_contact": "Contactar"
   },
@@ -34,7 +34,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "body": "Soy diseñadora gráfica de formación con especialización en medios audiovisuales, UX/UI y desarrollo. Me apasiona trabajar en proyectos relacionados con educación, idiomas, música y cultura. Soy responsable, comprometida y muy atenta a los detalles — me interesa la excelencia en cada proyecto que tomo. Trabajo principalmente en remoto y colaboro bien tanto de forma independiente como en equipo. Hablo español e inglés (B2) a nivel nativo de francés, y estoy aprendiendo alemán y portugués.",
+    "body": "Soy diseñadora gráfica de formación con especialización en medios audiovisuales, UX/UI y desarrollo. Trabajo con Figma, investigación UX, branding, Adobe Suite y herramientas de IA para llevar un proyecto del concepto a producción. Me apasionan los proyectos de educación, idiomas, música y cultura. Soy responsable, comprometida y muy atenta a los detalles — busco la excelencia en cada proyecto que tomo. Trabajo principalmente en remoto y colaboro bien tanto de forma independiente como en equipo. Español nativo, francés C2, inglés B2 — y actualmente aprendiendo alemán y portugués.",
     "skills_title": "Herramientas y habilidades",
     "skills": ["Figma", "Investigación UX", "Branding", "Adobe Suite", "Diseño editorial", "Wix", "GitHub & Vercel", "Herramientas IA"]
   },
