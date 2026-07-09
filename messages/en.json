@@ -19,6 +19,7 @@
     "view_site": "Visit site",
     "view_repo": "GitHub",
     "view_legacy": "Previous version",
+    "view_case_study_pdf": "Full case study (PDF)",
     "status": {
       "done": "Completed",
       "in_progress": "In progress",

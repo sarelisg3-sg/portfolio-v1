@@ -125,6 +125,16 @@ export default async function ProjectPage({
               {t("view_legacy")} ↗
             </a>
           )}
+          {frontmatter.pdfUrl && (
+            <a
+              href={frontmatter.pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
+            >
+              {t("view_case_study_pdf")} ↗
+            </a>
+          )}
         </div>
       </header>
 

@@ -23,6 +23,7 @@ export interface ProjectFrontmatter {
   repoUrl?: string;
   legacyRepoUrl?: string;
   externalUrl?: string;
+  pdfUrl?: string;
   coverImage?: string;
   coverAlt?: string;
   description: string;
