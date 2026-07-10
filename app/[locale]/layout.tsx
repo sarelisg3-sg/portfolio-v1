@@ -23,7 +23,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
-    metadataBase: new URL("https://sareli.dev"),
+    metadataBase: new URL("https://sarelisantiago.dev"),
     title: {
       default: t("home_title"),
       template: `%s — Sareli Santiago García`,
