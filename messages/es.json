@@ -11,6 +11,11 @@
     "cta_projects": "Ver proyectos",
     "cta_contact": "Contactar"
   },
+  "social": {
+    "linkedin": "Perfil de LinkedIn",
+    "github": "Perfil de GitHub",
+    "cv": "Ver CV (PDF)"
+  },
   "projects": {
     "section_title": "Proyectos",
     "section_subtitle": "Trabajo seleccionado — diseño, branding y experiencia de usuario.",
