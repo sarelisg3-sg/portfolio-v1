@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n/routing";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const LOCALES: Locale[] = ["es", "en", "fr"];
 
@@ -55,7 +56,7 @@ export function Navbar({ locale }: { locale: Locale }) {
           className={`px-2 py-1 text-xs font-medium uppercase transition-colors ${
             l === locale
               ? "bg-[var(--accent)] text-white"
-              : "text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-gray-50"
+              : "text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-gray-50 dark:hover:bg-white/5"
           }`}
         >
           {l}
@@ -65,7 +66,7 @@ export function Navbar({ locale }: { locale: Locale }) {
   );
 
   return (
-    <header className="border-b border-[var(--border)] bg-white/90 backdrop-blur-sm sticky top-0 z-40">
+    <header className="border-b border-[var(--border)] bg-white/90 dark:bg-[#0d1117]/90 backdrop-blur-sm sticky top-0 z-40">
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href={`/${locale}`}
@@ -77,32 +78,38 @@ export function Navbar({ locale }: { locale: Locale }) {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks}
-          <div className="ml-2">{localeSwitcher}</div>
+          <div className="flex items-center gap-3 ml-2">
+            {localeSwitcher}
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Mobile menu toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="md:hidden p-2 -mr-2 text-[var(--foreground)]"
-        >
-          {open ? (
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M4 4l12 12M16 4L4 16" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M3 5h14M3 10h14M3 15h14" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-1 -mr-2">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="p-2 text-[var(--foreground)]"
+          >
+            {open ? (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M4 4l12 12M16 4L4 16" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M3 5h14M3 10h14M3 15h14" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu panel */}
       {open && (
-        <div className="md:hidden border-t border-[var(--border)] bg-white px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-[var(--border)] bg-white dark:bg-[#0d1117] px-6 py-4 flex flex-col gap-4">
           {navLinks}
           {localeSwitcher}
         </div>

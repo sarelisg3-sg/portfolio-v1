@@ -52,12 +52,12 @@ export default async function HomePage({
               </a>
               <Link
                 href={`/${locale}/contact`}
-                className="px-5 py-2.5 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
+                className="px-5 py-2.5 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
               >
                 {t("hero.cta_contact")}
               </Link>
             </div>
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-5 mt-6">
               <a
                 href="https://www.linkedin.com/in/sareli-santiago-garcia/"
                 target="_blank"
@@ -65,7 +65,7 @@ export default async function HomePage({
                 aria-label={t("social.linkedin")}
                 className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
@@ -76,7 +76,7 @@ export default async function HomePage({
                 aria-label={t("social.github")}
                 className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.107-.775.418-1.305.762-1.605-2.665-.303-5.466-1.334-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                 </svg>
               </a>
@@ -87,10 +87,11 @@ export default async function HomePage({
                 aria-label={t("social.cv")}
                 className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path d="M6 2h6l3 3v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" strokeLinejoin="round" />
-                  <path d="M12 2v3h3" strokeLinejoin="round" />
-                  <path d="M7 11h6M7 14h4" strokeLinecap="round" />
+                <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path d="M6 2h5l4 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" strokeLinejoin="round" />
+                  <path d="M11 2v4h4" strokeLinejoin="round" />
+                  <path d="M8.2 14l3.6-3.6" strokeLinecap="round" />
+                  <path d="M9.4 10.2h2.4v2.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
             </div>
@@ -130,7 +131,7 @@ export default async function HomePage({
       {/* About */}
       <section
         id="about"
-        className="border-t border-[var(--border)] bg-gray-50"
+        className="border-t border-[var(--border)] bg-gray-50 dark:bg-white/[0.03]"
       >
         <div className="max-w-5xl mx-auto px-6 py-20">
           <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">

@@ -36,9 +36,9 @@ export function ContactForm({ locale }: { locale: string }) {
 
   if (state === "success") {
     return (
-      <div className="rounded-xl border border-green-200 bg-green-50 p-6">
-        <p className="font-medium text-green-800">{t("success_title")}</p>
-        <p className="text-sm text-green-700 mt-1">{t("success_body")}</p>
+      <div className="rounded-xl border border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950 p-6">
+        <p className="font-medium text-green-800 dark:text-green-400">{t("success_title")}</p>
+        <p className="text-sm text-green-700 dark:text-green-500 mt-1">{t("success_body")}</p>
       </div>
     );
   }
@@ -46,9 +46,9 @@ export function ContactForm({ locale }: { locale: string }) {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       {state === "error" && (
-        <div className="rounded-xl border border-red-200 bg-red-50 p-4">
-          <p className="font-medium text-red-800 text-sm">{t("error_title")}</p>
-          <p className="text-sm text-red-700 mt-0.5">{t("error_body")}</p>
+        <div className="rounded-xl border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950 p-4">
+          <p className="font-medium text-red-800 dark:text-red-400 text-sm">{t("error_title")}</p>
+          <p className="text-sm text-red-700 dark:text-red-500 mt-0.5">{t("error_body")}</p>
         </div>
       )}
 

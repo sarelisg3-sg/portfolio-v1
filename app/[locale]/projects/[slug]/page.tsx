@@ -110,7 +110,7 @@ export default async function ProjectPage({
               href={frontmatter.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
             >
               {t("view_repo")} ↗
             </a>
@@ -120,7 +120,7 @@ export default async function ProjectPage({
               href={frontmatter.legacyRepoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 border border-[var(--border)] text-sm text-[var(--muted)] rounded-lg hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-[var(--border)] text-sm text-[var(--muted)] rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
             >
               {t("view_legacy")} ↗
             </a>
@@ -130,7 +130,7 @@ export default async function ProjectPage({
               href={frontmatter.pdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-[var(--border)] text-sm font-medium rounded-lg text-[var(--foreground)] hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
             >
               {t("view_case_study_pdf")} ↗
             </a>
@@ -140,7 +140,7 @@ export default async function ProjectPage({
 
       {/* Cover */}
       {frontmatter.coverImage && (
-        <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-12 bg-gray-100">
+        <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-12 bg-gray-100 dark:bg-white/5">
           <Image
             src={frontmatter.coverImage}
             alt={frontmatter.coverAlt ?? frontmatter.title}
@@ -152,7 +152,7 @@ export default async function ProjectPage({
       )}
 
       {/* MDX Content */}
-      <div className="prose prose-neutral max-w-none prose-headings:font-semibold prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline">
+      <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline">
         <MDXRemote source={content} />
       </div>
     </article>

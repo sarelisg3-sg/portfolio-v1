@@ -4,9 +4,9 @@ import { useTranslations } from "next-intl";
 import type { Project } from "@/types/project";
 
 const STATUS_CLASSES = {
-  done: "bg-green-50 text-green-700 border-green-200",
-  "in-progress": "bg-amber-50 text-amber-700 border-amber-200",
-  concept: "bg-gray-50 text-gray-600 border-gray-200",
+  done: "bg-green-50 text-green-700 border-green-200 dark:bg-green-950 dark:text-green-400 dark:border-green-800",
+  "in-progress": "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950 dark:text-amber-400 dark:border-amber-800",
+  concept: "bg-gray-50 text-gray-600 border-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-gray-700",
 };
 
 const TYPE_KEY_MAP: Record<string, string> = {
@@ -33,9 +33,9 @@ export function ProjectCard({
   const detailHref = `/${locale}/projects/${slug}`;
 
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-[var(--border)] overflow-hidden hover:shadow-md transition-shadow bg-white">
+    <article className="group relative flex flex-col rounded-2xl border border-[var(--border)] overflow-hidden hover:shadow-md transition-shadow bg-white dark:bg-white/[0.02]">
       {/* Cover */}
-      <div className="relative aspect-[16/9] bg-gray-100 overflow-hidden">
+      <div className="relative aspect-[16/9] bg-gray-100 dark:bg-white/5 overflow-hidden">
         {frontmatter.coverImage ? (
           <Image
             src={frontmatter.coverImage}
@@ -83,7 +83,7 @@ export function ProjectCard({
           {frontmatter.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="text-xs bg-gray-50 border border-[var(--border)] text-[var(--muted)] px-2 py-0.5 rounded-full"
+              className="text-xs bg-gray-50 dark:bg-white/5 border border-[var(--border)] text-[var(--muted)] px-2 py-0.5 rounded-full"
             >
               {tag}
             </span>
