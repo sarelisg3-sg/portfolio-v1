@@ -2,7 +2,8 @@
   "nav": {
     "projects": "Projets",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "certifications": "Certifications"
   },
   "hero": {
     "greeting": "Bonjour, je suis Sareli",
@@ -42,7 +43,16 @@
     "title": "À propos",
     "body": "Designer graphique de formation, spécialisée en médias audiovisuels, UX/UI et développement. Je travaille avec Figma, la recherche UX, le branding, la suite Adobe et des outils d'IA pour mener un projet du concept à la production. Je suis passionnée par les projets liés à l'éducation, aux langues, à la musique et à la culture. Rigoureuse, engagée et très attentive aux détails, je vise l'excellence dans chaque projet. Je travaille principalement à distance et collabore aussi bien en autonomie qu'en équipe. Espagnole native, français C2, anglais B2 — j'apprends actuellement l'allemand et le portugais.",
     "skills_title": "Outils et compétences",
-    "skills": ["Figma", "Recherche UX", "Branding", "Adobe Suite", "Design éditorial", "GitHub & Vercel", "Outils IA"]
+    "skills": [
+      "Figma",
+      "Recherche UX",
+      "Branding",
+      "Adobe Suite",
+      "Design éditorial",
+      "GitHub & Vercel",
+      "Outils IA"
+    ],
+    "cv_link": "Télécharger mon CV (PDF)"
   },
   "contact": {
     "title": "Contact",
@@ -70,5 +80,10 @@
     "home_description": "Portfolio de Sareli Santiago García, UI/UX Designer et Design Engineer spécialisée en branding, expérience utilisateur et projets liés à l'éducation, aux langues et à la culture.",
     "projects_title": "Projets",
     "contact_title": "Contact"
+  },
+  "certifications": {
+    "section_title": "Certifications",
+    "section_subtitle": "Cours et certifications que j'ai obtenus.",
+    "view_credential": "Voir le certificat"
   }
 }

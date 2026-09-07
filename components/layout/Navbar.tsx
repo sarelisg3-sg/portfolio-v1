@@ -30,6 +30,13 @@ export function Navbar({ locale }: { locale: Locale }) {
         {t("projects")}
       </Link>
       <Link
+        href={`/${locale}#certifications`}
+        onClick={() => setOpen(false)}
+        className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+      >
+        {t("certifications")}
+      </Link>
+      <Link
         href={`/${locale}#about`}
         onClick={() => setOpen(false)}
         className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"

@@ -15,6 +15,7 @@ export interface ProjectFrontmatter {
   title: string;
   tagline: string;
   date?: string;
+  order?: number;
   status: ProjectStatus;
   type: ProjectType;
   tags: string[];

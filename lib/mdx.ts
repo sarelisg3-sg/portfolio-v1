@@ -2,8 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import type { Project, ProjectFrontmatter, Locale } from "@/types/project";
+import type { Certification, CertificationFrontmatter } from "@/types/certification";
 
 const PROJECTS_DIR = path.join(process.cwd(), "content", "projects");
+const CERTIFICATIONS_DIR = path.join(process.cwd(), "content", "certifications");
 
 export function getProjectSlugs(): string[] {
   if (!fs.existsSync(PROJECTS_DIR)) return [];
@@ -35,10 +37,46 @@ export function getAllProjects(locale: Locale): Project[] {
     .sort((a, b) => {
       if (a.frontmatter.featured && !b.frontmatter.featured) return -1;
       if (!a.frontmatter.featured && b.frontmatter.featured) return 1;
-      return 0;
+      const orderA = a.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+      const orderB = b.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+      return orderA - orderB;
     });
 }
 
 export function getFeaturedProjects(locale: Locale): Project[] {
   return getAllProjects(locale).filter((p) => p.frontmatter.featured);
+}
+
+export function getCertificationSlugs(): string[] {
+  if (!fs.existsSync(CERTIFICATIONS_DIR)) return [];
+  return fs.readdirSync(CERTIFICATIONS_DIR).filter((name) => {
+    const full = path.join(CERTIFICATIONS_DIR, name);
+    return fs.statSync(full).isDirectory();
+  });
+}
+
+export function getCertification(slug: string, locale: Locale): Certification | null {
+  const filePath = path.join(CERTIFICATIONS_DIR, slug, `${locale}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+
+  const raw = fs.readFileSync(filePath, "utf8");
+  const { data, content } = matter(raw);
+
+  return {
+    slug,
+    frontmatter: data as CertificationFrontmatter,
+    content,
+  };
+}
+
+export function getAllCertifications(locale: Locale): Certification[] {
+  const slugs = getCertificationSlugs();
+  return slugs
+    .map((slug) => getCertification(slug, locale))
+    .filter((c): c is Certification => c !== null)
+    .sort((a, b) => {
+      const orderA = a.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+      const orderB = b.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+      return orderA - orderB;
+    });
 }

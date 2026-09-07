@@ -2,8 +2,9 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getFeaturedProjects } from "@/lib/mdx";
+import { getFeaturedProjects, getAllCertifications } from "@/lib/mdx";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { CertificationCard } from "@/components/certifications/CertificationCard";
 import type { Locale } from "@/lib/i18n/routing";
 
 export async function generateMetadata({
@@ -27,6 +28,7 @@ export default async function HomePage({
   const { locale } = await params;
   const t = await getTranslations({ locale });
   const projects = getFeaturedProjects(locale as Locale);
+  const certifications = getAllCertifications(locale as Locale);
 
   return (
     <>
@@ -155,8 +157,43 @@ export default async function HomePage({
               ))}
             </div>
           </div>
+          <a
+            href={`/cv/CV_Sareli_Santiago_${locale.toUpperCase()}.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-8 text-sm font-medium text-[var(--accent)] hover:underline"
+          >
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path d="M6 2h5l4 4v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" strokeLinejoin="round" />
+              <path d="M11 2v4h4" strokeLinejoin="round" />
+              <path d="M8.2 14l3.6-3.6" strokeLinecap="round" />
+              <path d="M9.4 10.2h2.4v2.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {t("about.cv_link")}
+          </a>
         </div>
       </section>
+
+      {/* Certifications */}
+      {certifications.length > 0 && (
+        <section id="certifications" className="max-w-5xl mx-auto px-6 py-24">
+          <h2 className="text-2xl font-bold text-[var(--foreground)] mb-2">
+            {t("certifications.section_title")}
+          </h2>
+          <p className="text-[var(--muted)] mb-10">
+            {t("certifications.section_subtitle")}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {certifications.map((certification) => (
+              <CertificationCard
+                key={certification.slug}
+                certification={certification}
+                locale={locale}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }
