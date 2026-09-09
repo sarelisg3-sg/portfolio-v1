@@ -7,10 +7,11 @@ export interface CertificationFrontmatter {
   issuer: string;
   date?: string;
   order?: number;
+  credentialId?: string;
   credentialUrl?: string;
   image?: string;
   imageAlt?: string;
-  description: string;
+  description?: string;
 }
 
 export interface Certification {

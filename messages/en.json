@@ -85,6 +85,7 @@
   "certifications": {
     "section_title": "Certifications",
     "section_subtitle": "Courses and certifications I have completed.",
-    "view_credential": "View credential"
+    "view_credential": "View credential",
+    "credential_id": "Credential ID"
   }
 }

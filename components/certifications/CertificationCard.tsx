@@ -37,7 +37,14 @@ export function CertificationCard({
           {frontmatter.issuer}
           {frontmatter.date ? ` · ${frontmatter.date}` : ""}
         </p>
-        <p className="text-sm text-[var(--muted)] mt-1">{frontmatter.description}</p>
+        {frontmatter.description && (
+          <p className="text-sm text-[var(--muted)] mt-1">{frontmatter.description}</p>
+        )}
+        {frontmatter.credentialId && (
+          <p className="text-xs text-[var(--muted)]">
+            {t("credential_id")}: {frontmatter.credentialId}
+          </p>
+        )}
 
         {frontmatter.credentialUrl && (
           <a
