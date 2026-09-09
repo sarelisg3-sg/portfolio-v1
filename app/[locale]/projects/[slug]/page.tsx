@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getTranslations } from "next-intl/server";
 import { getProject, getProjectSlugs } from "@/lib/mdx";
 import { routing } from "@/lib/i18n/routing";
@@ -153,7 +154,10 @@ export default async function ProjectPage({
 
       {/* MDX Content */}
       <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline">
-        <MDXRemote source={content} />
+        <MDXRemote
+          source={content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </div>
     </article>
   );

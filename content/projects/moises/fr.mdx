@@ -1,0 +1,78 @@
+---
+slug: moises
+locale: fr
+title: "Personne n'a dit que c'était cher"
+tagline: "UX Research sur Moises — pourquoi les utilisateurs ne passent pas au premium"
+date: "2026-08"
+order: 1
+status: done
+type: ux-research
+tags: ["UX Research", "Entretiens", "Enquête", "Tests d'utilisabilité", "Figma", "Miro"]
+featured: true
+liveUrl: "https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7"
+pdfUrl: "/projects/moises/case-study.pdf"
+coverImage: "/projects/moises/cover.png"
+coverAlt: "Couverture de l'étude Moises montrant les indicateurs clés : NPS +13.6, SUS 76.1, 0% de réussite sur la tâche de rétrogradation d'abonnement"
+description: "Recherche UX autoinitiée sur les raisons pour lesquelles les musiciens ne passent pas au premium sur Moises : entretiens, enquête et test d'utilisabilité avec une base de référence mesurée (SUS 76.1, NPS +13.6), résolue par un pivot vérifié par une capture d'écran réelle."
+---
+
+> Projet de recherche **autoinitié**, sans lien commercial ni accès aux données internes de Moises. Le défi business a été construit à partir d'une recherche documentaire sur un modèle freemium public. Tous les participants ont été anonymisés.
+
+## Le problème
+
+**Moises** est une application freemium pour musiciens qui utilise l'IA pour séparer les pistes d'une chanson, détecter les accords et changer la tonalité et le tempo. Comme dans tout modèle freemium, le business ne vit pas de qui télécharge l'application — il vit du pourcentage qui passe au payant. Faire passer cette conversion de 3 % à 4 % n'est pas une amélioration de 1 % : c'est **33 % de revenus en plus** sur la même base d'utilisateurs, sans dépenser un centime en acquisition.
+
+**Question de recherche :** qu'est-ce qui motive ou freine un musicien au moment de payer pour un outil comme Moises ?
+
+Un mois de recherche documentaire (46+ avis App Store, Play Store et PissedConsumer, plus 28 captures TikTok) pointait déjà vers quelque chose qu'aucune hypothèse initiale ne capturait entièrement : le motif le plus répété n'était pas « c'est cher » — c'était **la méfiance envers le prélèvement récurrent** et la possibilité d'annuler ou de changer de forfait sans friction.
+
+## Méthode mixte
+
+- **6 entretiens approfondis**, avec un recrutement délibéré (partage un compte, paie individuellement, utilise uniquement le gratuit, a rétrogradé son forfait) — le *pourquoi* derrière le comportement.
+- **Enquête fermée** (NPS + SUS + Likert) : 59 réponses au total, 22 complètes — le *combien*, à l'échelle.
+- **Test d'utilisabilité avec 5 personnes**, sur l'application Moises réelle, mesurant une base de référence avant de proposer tout changement.
+
+Les 6 entretiens ont produit 16 insights, regroupés à la main dans une carte d'affinité de 8 clusters, puis confrontés séparément au clustering automatique de Miro AI sur les mêmes notes — sans lui indiquer les groupes — comme moyen de valider l'analyse qualitative.
+
+## Le pivot : quand deux données se contredisent
+
+Un insight d'entretien semblait, en apparence, contredire un avis recueilli des mois plus tôt lors de la recherche documentaire :
+
+> « C'est appréciable que ce soit déjà systématisé et qu'il y ait un bouton pour annuler l'abonnement... avoir cette liberté, c'est top. » — Fakir, entretien
+
+> « J'ai le forfait pro... et j'ai essayé de le changer pour le premium... ça ne me propose que d'ajouter un moyen de paiement. » — Moy HL, avis App Store
+
+Plutôt que de moyenner ou d'écarter l'une des deux données, la contradiction a été traitée comme une hypothèse à vérifier : **annuler et rétrograder pouvaient être deux parcours distincts**, avec des expériences différentes. Cela a été ajouté comme tâche explicite au test d'utilisabilité.
+
+**Résultat — 5 personnes, 2 tâches, sur l'application réelle :**
+
+| Tâche | Réussite |
+|---|---|
+| A — activer la valeur premium | 40 % (2/5) |
+| B — rétrograder sans annuler | **0 % (0/5)** |
+
+Le cas le plus déterminant : Mari, la seule session avec un vrai compte Pro, a suivi le bon chemin (Forfaits → Gérer l'abonnement) et l'application l'a redirigée vers le vrai portail de facturation Stripe — vérifié avec une capture d'écran réelle, pas seulement avec son témoignage. La seule action visible là-bas était « Annuler l'abonnement » : aucun contrôle pour changer de forfait.
+
+**Conclusion :** annuler complètement est effectivement facile ; passer à un forfait moins cher sans annuler ne l'est pas. L'étude ne prouve pas que la rétrogradation soit techniquement impossible côté backend — elle prouve qu'en suivant les parcours de navigation disponibles, aucun participant n'a pu la découvrir ni l'exécuter.
+
+## Les chiffres
+
+- **NPS final : +13,6** (moyenne 7,27)
+- **SUS : 76,1** — au-dessus du benchmark (68), et encore plus élevé chez ceux qui paient individuellement (86,6)
+
+Le SUS élevé confirme ce que les entretiens suggéraient déjà : Moises n'a pas de problème d'utilisabilité fondamental. La barrière à la conversion est ailleurs — et le test de la tâche B la pointe avec précision.
+
+## De la recherche au prototype
+
+À partir de cette évidence, un prototype Figma a été construit : **4 écrans clés** (pas une refonte complète) couvrant exactement les points où la recherche a trouvé de la friction, reliés par des clics réels — onboarding avec question de rôle, bannière de valeur premium contextuelle affichée au moment précis où l'utilisateur atteint la limite gratuite, comparatif des forfaits, et une section « Gérer mon forfait » avec la rétrogradation au même niveau de visibilité que l'annulation.
+
+**Recommandations priorisées dans une matrice impact-effort :**
+
+- Donner à « changer de forfait » la même visibilité que celle déjà accordée à « annuler » — la plus urgente : le test l'a confirmé dans 0 cas sur 5.
+- Montrer la valeur du premium exactement au moment où l'utilisateur atteint la limite gratuite, pas cachée dans une FAQ.
+- Explorer un forfait à vie et un forfait duo/familial formel, captant comme revenu légitime un comportement qui existe déjà gratuitement (partage de compte, comptes multiples).
+- Ne pas investir d'effort de conversion sur le segment ayant une objection éthique envers l'IA — il ne convertira pas avec un meilleur design, quelle que soit l'amélioration du produit.
+
+## Artefacts complémentaires
+
+[Tableau Miro](https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236) (carte d'affinité + comparaison Miro AI) · [Prototype interactif Figma](https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7) · [Vidéo storytelling](https://drive.google.com/file/d/1B7ZFBPbPoFlHOGFy1L4U3x4eQWaoskjJ/view?usp=sharing) (script ABT)

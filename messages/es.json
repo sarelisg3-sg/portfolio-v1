@@ -25,7 +25,7 @@
     "view_site": "Ver sitio",
     "view_repo": "GitHub",
     "view_legacy": "Versión anterior",
-    "view_case_study_pdf": "Case study completo (PDF)",
+    "view_case_study_pdf": "Descargar PDF completo",
     "status": {
       "done": "Completado",
       "in_progress": "En progreso",
@@ -34,7 +34,8 @@
     "type": {
       "redesign": "Rediseño",
       "frontend": "Frontend",
-      "ux_case_study": "Case Study UX",
+      "ux_deep_dive": "UX Deep Dive",
+      "ux_research": "UX Research Project",
       "external": "Proyecto externo",
       "design_system": "Design System"
     }

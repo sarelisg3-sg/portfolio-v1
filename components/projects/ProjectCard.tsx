@@ -12,7 +12,8 @@ const STATUS_CLASSES = {
 const TYPE_KEY_MAP: Record<string, string> = {
   redesign: "redesign",
   frontend: "frontend",
-  "ux-case-study": "ux_case_study",
+  "ux-deep-dive": "ux_deep_dive",
+  "ux-research": "ux_research",
   external: "external",
   "design-system": "design_system",
 };
@@ -58,14 +59,18 @@ export function ProjectCard({
           <span className="text-xs font-medium text-[var(--accent)]">
             {t(`type.${typeKey}`)}
           </span>
-          <span className="text-xs text-[var(--muted)]">·</span>
-          <span
-            className={`text-xs font-medium px-2 py-0.5 rounded-full border ${
-              STATUS_CLASSES[frontmatter.status]
-            }`}
-          >
-            {t(`status.${frontmatter.status.replace("-", "_")}`)}
-          </span>
+          {frontmatter.status !== "done" && (
+            <>
+              <span className="text-xs text-[var(--muted)]">·</span>
+              <span
+                className={`text-xs font-medium px-2 py-0.5 rounded-full border ${
+                  STATUS_CLASSES[frontmatter.status]
+                }`}
+              >
+                {t(`status.${frontmatter.status.replace("-", "_")}`)}
+              </span>
+            </>
+          )}
         </div>
 
         {/* Title + tagline */}

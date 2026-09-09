@@ -1,7 +1,8 @@
 export type ProjectType =
   | "redesign"
   | "frontend"
-  | "ux-case-study"
+  | "ux-deep-dive"
+  | "ux-research"
   | "external"
   | "design-system";
 

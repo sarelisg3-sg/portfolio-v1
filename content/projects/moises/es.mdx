@@ -1,0 +1,78 @@
+---
+slug: moises
+locale: es
+title: "Ninguno dijo que fuera caro"
+tagline: "UX Research sobre Moises — por qué los usuarios no convierten a premium"
+date: "2026-08"
+order: 1
+status: done
+type: ux-research
+tags: ["UX Research", "Entrevistas", "Encuesta", "Pruebas de usabilidad", "Figma", "Miro"]
+featured: true
+liveUrl: "https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7"
+pdfUrl: "/projects/moises/case-study.pdf"
+coverImage: "/projects/moises/cover.png"
+coverAlt: "Cover del case study de Moises con las métricas clave: NPS +13.6, SUS 76.1, 0% de éxito en la tarea de bajar de plan"
+description: "Investigación UX autoiniciada sobre por qué los músicos no convierten a premium en Moises: entrevistas, encuesta y prueba de usabilidad con línea base medida (SUS 76.1, NPS +13.6), resuelta con un pivot verificado en captura real."
+---
+
+> Proyecto de investigación **autoiniciado**, sin vínculo comercial ni acceso a datos internos de Moises. El reto de negocio se construyó a partir de investigación de escritorio sobre un modelo freemium público. Todos los participantes fueron anonimizados.
+
+## El problema
+
+**Moises** es una app freemium para músicos que usa IA para separar pistas de una canción, detectar acordes y cambiar tono y tempo. Como en todo modelo freemium, el negocio no vive de quien descarga la app — vive del porcentaje que convierte a pago. Mover esa conversión de 3% a 4% no es una mejora del 1%: es **33% más de ingresos** sobre la misma base de usuarios, sin gastar un peso en adquisición.
+
+**Pregunta de investigación:** ¿qué motiva o frena a un músico a la hora de pagar por una herramienta como Moises?
+
+Un mes de desk research (46+ reseñas de App Store, Play Store y PissedConsumer, más 28 capturas de TikTok) ya apuntaba a algo que ninguna hipótesis inicial capturaba del todo: el patrón más repetido no era "es caro" — era **desconfianza en el cobro recurrente** y en poder cancelar o cambiar de plan sin fricción.
+
+## Método mixto
+
+- **6 entrevistas en profundidad**, con reclutamiento deliberado (comparte cuenta, paga individual, usa el free puro, bajó de plan) — el porqué detrás del comportamiento.
+- **Encuesta cerrada** (NPS + SUS + Likert): 59 respuestas totales, 22 completas — el cuánto, a escala.
+- **Prueba de usabilidad con 5 personas**, sobre la app real de Moises, midiendo una línea base antes de proponer cualquier cambio.
+
+Las 6 entrevistas produjeron 16 insights, agrupados a mano en un mapa de afinidad de 8 clusters, y contrastados por separado con clustering automático de Miro AI sobre las mismas notas — sin indicarle los grupos — como forma de validar el análisis cualitativo.
+
+## El pivot: cuando dos datos se contradicen
+
+Un insight de entrevista chocaba, en apariencia, con una reseña recolectada meses antes en el desk research:
+
+> "Se agradece que ya está sistematizado y que tiene un botón de cancelar suscripción... tener esa libertad está chido." — Fakir, entrevista
+
+> "Tengo el plan pro... e intenté cambiarlo al premium... solo me aparece agregar método de pago." — Moy HL, reseña de App Store
+
+En vez de promediar o descartar uno de los dos datos, se trató la contradicción como una hipótesis a verificar: **cancelar y bajar de plan podían ser dos flujos distintos**, con experiencias distintas. Se agregó como tarea explícita a la prueba de usabilidad.
+
+**Resultado — 5 personas, 2 tareas, sobre la app real:**
+
+| Tarea | Éxito |
+|---|---|
+| A — activar valor premium | 40% (2/5) |
+| B — bajar de plan sin cancelar | **0% (0/5)** |
+
+El caso más determinante: Mari, la única sesión con cuenta Pro real, siguió la ruta correcta (Planes → Administrar suscripción) y la app la redirigió al portal real de facturación de Stripe — verificado con una captura de pantalla real, no solo con su reporte. La única acción visible ahí era "Cancelar suscripción": ningún control para cambiar de plan.
+
+**Conclusión:** cancelar del todo sí es fácil; cambiar a un plan más barato sin cancelar, no. El estudio no demuestra que el downgrade sea técnicamente imposible en el backend — demuestra que, siguiendo las rutas de navegación disponibles, ningún participante pudo descubrirlo ni ejecutarlo.
+
+## Los números
+
+- **NPS final: +13.6** (promedio 7.27)
+- **SUS: 76.1** — por encima del benchmark (68), y más alto aún entre quienes pagan individual (86.6)
+
+El SUS alto confirma lo que ya decían las entrevistas: Moises no tiene un problema de usabilidad core. La barrera de conversión es otra cosa, y la prueba de la tarea B la señala con precisión.
+
+## Del research al prototipo
+
+A partir de esta evidencia se construyó un prototipo en Figma: **4 pantallas clave** (no un rediseño completo) sobre los puntos exactos donde el research encontró fricción, conectadas con clicks reales — onboarding con pregunta de rol, banner de valor premium contextual en el momento en que el usuario topa el límite gratuito, comparativa de planes, y una sección "Gestionar mi plan" con downgrade al mismo nivel de visibilidad que cancelar.
+
+**Recomendaciones priorizadas en una matriz impacto-esfuerzo:**
+
+- Dar a "cambiar de plan" la misma visibilidad que ya tiene "cancelar" — la más urgente: la prueba la confirmó en 0 de 5 casos.
+- Mostrar el valor de premium justo en el momento en que el usuario topa el límite gratuito, no escondido en un FAQ.
+- Explorar un plan perpetuo y un plan dúo/familiar formal, que capturen como ingreso legítimo un comportamiento que hoy ya existe gratis (compartir cuenta, multicuentas).
+- No invertir esfuerzo de conversión en el segmento con objeción ética a la IA — no convierte con mejor diseño, sin importar cuánto mejore el producto.
+
+## Artefactos complementarios
+
+[Tablero de Miro](https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236) (mapa de afinidad + comparación con Miro AI) · [Prototipo interactivo en Figma](https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7) · [Video de storytelling](https://drive.google.com/file/d/1B7ZFBPbPoFlHOGFy1L4U3x4eQWaoskjJ/view?usp=sharing) (guion ABT)

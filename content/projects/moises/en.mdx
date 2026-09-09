@@ -1,0 +1,78 @@
+---
+slug: moises
+locale: en
+title: "None of Them Said It Was Expensive"
+tagline: "UX Research on Moises — why users don't convert to premium"
+date: "2026-08"
+order: 1
+status: done
+type: ux-research
+tags: ["UX Research", "Interviews", "Survey", "Usability Testing", "Figma", "Miro"]
+featured: true
+liveUrl: "https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7"
+pdfUrl: "/projects/moises/case-study.pdf"
+coverImage: "/projects/moises/cover.png"
+coverAlt: "Moises case study cover showing the key metrics: +13.6 NPS, 76.1 SUS, 0% success rate on the downgrade task"
+description: "Self-initiated UX research into why musicians don't convert to premium on Moises: interviews, survey and usability testing with a measured baseline (SUS 76.1, NPS +13.6), resolved with a pivot verified by a real screenshot."
+---
+
+> **Self-initiated** research project, with no commercial relationship or access to internal Moises data. The business challenge was built from desk research on a public freemium model. All participants were anonymized.
+
+## The problem
+
+**Moises** is a freemium app for musicians that uses AI to separate a song's stems, detect chords, and change key and tempo. As in any freemium model, the business doesn't live off who downloads the app — it lives off the percentage that converts to paid. Moving that conversion from 3% to 4% isn't a 1% improvement: it's **33% more revenue** on the same user base, without spending a peso on acquisition.
+
+**Research question:** what motivates or holds back a musician from paying for a tool like Moises?
+
+A month of desk research (46+ reviews from the App Store, Play Store and PissedConsumer, plus 28 TikTok screenshots) already pointed to something no initial hypothesis fully captured: the most repeated pattern wasn't "it's expensive" — it was **distrust in recurring billing** and in being able to cancel or change plans without friction.
+
+## Mixed method
+
+- **6 in-depth interviews**, with deliberate recruiting (shares an account, pays individually, uses the free tier only, downgraded a plan) — the *why* behind the behavior.
+- **Closed survey** (NPS + SUS + Likert): 59 total responses, 22 complete — the *how much*, at scale.
+- **Usability testing with 5 people**, on the real Moises app, measuring a baseline before proposing any change.
+
+The 6 interviews produced 16 insights, grouped by hand into an affinity map with 8 clusters, and separately cross-checked against Miro AI's automatic clustering on the same notes — without telling it the groups — as a way to validate the qualitative analysis.
+
+## The pivot: when two data points contradict each other
+
+One interview insight seemed, on the surface, to contradict a review collected months earlier during desk research:
+
+> "It's nice that it's already systematized and has a cancel-subscription button... having that freedom is great." — Fakir, interview
+
+> "I have the pro plan... and tried switching it to premium... it only lets me add a payment method." — Moy HL, App Store review
+
+Instead of averaging out or discarding one of the two data points, the contradiction was treated as a hypothesis to verify: **canceling and downgrading could be two different flows**, with different experiences. It was added as an explicit task to the usability test.
+
+**Result — 5 people, 2 tasks, on the real app:**
+
+| Task | Success |
+|---|---|
+| A — activate premium value | 40% (2/5) |
+| B — downgrade without canceling | **0% (0/5)** |
+
+The most decisive case: Mari, the only session with a real Pro account, followed the correct path (Plans → Manage subscription) and the app redirected her to Stripe's real billing portal — verified with an actual screenshot, not just her self-report. The only visible action there was "Cancel subscription": no control to change plans.
+
+**Conclusion:** canceling entirely is indeed easy; switching to a cheaper plan without canceling is not. The study doesn't prove downgrading is technically impossible on the backend — it proves that, following the navigation paths available, no participant could discover or execute it.
+
+## The numbers
+
+- **Final NPS: +13.6** (average 7.27)
+- **SUS: 76.1** — above the benchmark (68), and even higher among individual payers (86.6)
+
+The high SUS confirms what the interviews already suggested: Moises doesn't have a core usability problem. The conversion barrier is something else — and the task B test pinpoints it precisely.
+
+## From research to prototype
+
+Based on this evidence, a Figma prototype was built: **4 key screens** (not a full redesign) covering the exact points where the research found friction, connected with real clicks — role-based onboarding, a contextual premium-value banner shown right when the user hits the free limit, a plan comparison, and a "Manage my plan" section with downgrade at the same visibility level as cancel.
+
+**Recommendations prioritized in an impact-effort matrix:**
+
+- Give "change plan" the same visibility "cancel" already has — the most urgent one: the test confirmed it in 0 of 5 cases.
+- Show premium value right at the moment the user hits the free limit, not hidden in a FAQ.
+- Explore a lifetime plan and a formal duo/family plan, capturing as legitimate revenue a behavior that already happens for free (account sharing, multiple accounts).
+- Don't spend conversion effort on the segment with an ethical objection to AI — it won't convert with better design, no matter how much the product improves.
+
+## Supporting artifacts
+
+[Miro board](https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236) (affinity map + Miro AI comparison) · [Interactive Figma prototype](https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7) · [Storytelling video](https://drive.google.com/file/d/1B7ZFBPbPoFlHOGFy1L4U3x4eQWaoskjJ/view?usp=sharing) (ABT script)
