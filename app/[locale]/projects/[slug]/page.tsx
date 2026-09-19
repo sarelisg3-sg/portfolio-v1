@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getTranslations } from "next-intl/server";
-import { getProject, getProjectSlugs } from "@/lib/mdx";
+import { getProject, getProjectSlugs, getFeaturedProjects } from "@/lib/mdx";
 import { extractHeadings } from "@/lib/slugify";
 import { routing } from "@/lib/i18n/routing";
 import type { Locale } from "@/lib/i18n/routing";
@@ -60,6 +60,12 @@ export default async function ProjectPage({
   const t = await getTranslations({ locale, namespace: "projects" });
   const { frontmatter, content } = project;
   const headings = extractHeadings(content);
+
+  // Previous / next project in the same order as the home grid.
+  const siblings = getFeaturedProjects(locale as Locale);
+  const index = siblings.findIndex((p) => p.slug === slug);
+  const prevProject = index > 0 ? siblings[index - 1] : null;
+  const nextProject = index >= 0 && index < siblings.length - 1 ? siblings[index + 1] : null;
 
   // Primary CTA: the most "real" artefact available — live site/app first, then prototype.
   const primaryHref = frontmatter.externalUrl ?? frontmatter.liveUrl ?? null;
@@ -156,11 +162,6 @@ export default async function ProjectPage({
                 {t("view_legacy")} ↗
               </a>
             )}
-            {frontmatter.pdfUrl && (
-              <a href={frontmatter.pdfUrl} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
-                {t("view_full_pdf")} ↗
-              </a>
-            )}
           </div>
         </header>
 
@@ -178,6 +179,28 @@ export default async function ProjectPage({
           </div>
         )}
 
+        {/* On-this-page index for phones/tablets (the sticky sidebar only exists on desktop) */}
+        {headings.length >= 3 && (
+          <details className="lg:hidden mb-10 rounded-xl border border-[var(--border)] bg-gray-50 dark:bg-white/[0.03] px-5 py-4">
+            <summary className="cursor-pointer list-none flex items-center justify-between gap-4 text-sm font-semibold text-[var(--foreground)]">
+              <span>{t("on_this_page")}</span>
+              <span className="text-xs font-normal text-[var(--muted)]">
+                {t("sections_count", { count: headings.length })}
+              </span>
+            </summary>
+            <ol className="mt-4 space-y-2 text-sm">
+              {headings.map((h, i) => (
+                <li key={h.id} className="flex gap-3">
+                  <span className="w-5 shrink-0 tabular-nums text-[var(--muted)]">{i + 1}.</span>
+                  <a href={`#${h.id}`} className="text-[var(--foreground)] hover:text-[var(--accent)]">
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )}
+
         {/* MDX Content */}
         <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-h2:mt-14 prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline">
           <MDXRemote
@@ -187,6 +210,49 @@ export default async function ProjectPage({
             options={{ blockJS: false, mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </div>
+
+        {/* Prev / next project — no dead end after a long read */}
+        <nav
+          aria-label={t("section_title")}
+          className="mt-20 pt-8 border-t border-[var(--border)]"
+        >
+          <Link
+            href={`/${locale}#projects`}
+            className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+          >
+            ← {t("all_projects")}
+          </Link>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {prevProject ? (
+              <Link
+                href={`/${locale}/projects/${prevProject.slug}`}
+                className="group rounded-xl border border-[var(--border)] p-5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+              >
+                <span className="block text-xs uppercase tracking-wide text-[var(--muted)] mb-1">
+                  ← {t("prev_project")}
+                </span>
+                <span className="block font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+                  {prevProject.frontmatter.title}
+                </span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {nextProject && (
+              <Link
+                href={`/${locale}/projects/${nextProject.slug}`}
+                className="group rounded-xl border border-[var(--border)] p-5 text-left sm:text-right hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+              >
+                <span className="block text-xs uppercase tracking-wide text-[var(--muted)] mb-1">
+                  {t("next_project")} →
+                </span>
+                <span className="block font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+                  {nextProject.frontmatter.title}
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
       </article>
 
       {/* On-this-page nav (desktop only) */}

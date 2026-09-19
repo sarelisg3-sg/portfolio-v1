@@ -40,8 +40,11 @@
     },
     "view_prototype": "Ver prototipo en Figma",
     "view_board": "Tablero de Miro",
-    "view_full_pdf": "Ver proyecto completo (PDF)",
-    "on_this_page": "En esta página"
+    "on_this_page": "En esta página",
+    "all_projects": "Todos los proyectos",
+    "prev_project": "Proyecto anterior",
+    "next_project": "Siguiente proyecto",
+    "sections_count": "{count} secciones"
   },
   "about": {
     "title": "Sobre mí",

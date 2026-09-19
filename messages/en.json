@@ -40,8 +40,11 @@
     },
     "view_prototype": "View Figma prototype",
     "view_board": "Miro board",
-    "view_full_pdf": "View full project (PDF)",
-    "on_this_page": "On this page"
+    "on_this_page": "On this page",
+    "all_projects": "All projects",
+    "prev_project": "Previous project",
+    "next_project": "Next project",
+    "sections_count": "{count} sections"
   },
   "about": {
     "title": "About",

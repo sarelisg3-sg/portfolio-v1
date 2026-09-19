@@ -111,25 +111,25 @@ export function ProjectCard({
           ))}
         </div>
 
-        {/* Links */}
-        <div className="relative z-10 mt-auto flex flex-wrap gap-3 pt-2 pointer-events-auto">
+        {/* Links — the project page (full process) always comes first; live demos after. */}
+        <div className="relative z-10 mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-2 pointer-events-auto">
+          <Link
+            href={detailHref}
+            className="text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+          >
+            {t("view_project")} →
+          </Link>
+
           {externalLink && (
             <a
               href={externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
               {isExternal ? t("view_site") : (frontmatter.liveLabel ?? t("view_live"))} ↗
             </a>
           )}
-
-          <Link
-            href={detailHref}
-            className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-          >
-            {t("view_project")} →
-          </Link>
 
           {frontmatter.legacyRepoUrl && (
             <a
