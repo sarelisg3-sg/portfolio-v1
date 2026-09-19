@@ -26,6 +26,12 @@ export interface ProjectFrontmatter {
   legacyRepoUrl?: string;
   externalUrl?: string;
   pdfUrl?: string;
+  /** Interactive prototype (Figma etc.) — rendered as its own CTA */
+  prototypeUrl?: string;
+  /** Research board (Miro etc.) */
+  boardUrl?: string;
+  /** 2–4 headline metrics shown in the project header and card */
+  highlights?: { value: string; label: string }[];
   coverImage?: string;
   coverAlt?: string;
   description: string;

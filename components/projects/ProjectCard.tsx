@@ -83,6 +83,22 @@ export function ProjectCard({
           </p>
         </div>
 
+        {/* Headline metrics */}
+        {frontmatter.highlights && frontmatter.highlights.length > 0 && (
+          <dl className="grid grid-cols-3 gap-3">
+            {frontmatter.highlights.slice(0, 3).map((h) => (
+              <div key={h.label}>
+                <dd className="text-lg font-bold tracking-tight text-[var(--foreground)] leading-tight">
+                  {h.value}
+                </dd>
+                <dt className="text-[11px] text-[var(--muted)] leading-snug line-clamp-2">
+                  {h.label}
+                </dt>
+              </div>
+            ))}
+          </dl>
+        )}
+
         {/* Tags */}
         <div className="flex flex-wrap gap-1">
           {frontmatter.tags.slice(0, 4).map((tag) => (
@@ -139,7 +155,7 @@ export function ProjectCard({
         </div>
       </div>
 
-      {/* Stretched link — click anywhere on the card opens the case study */}
+      {/* Stretched link — click anywhere on the card opens the project page */}
       <Link
         href={detailHref}
         className="absolute inset-0 z-0"

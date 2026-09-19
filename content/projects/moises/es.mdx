@@ -2,77 +2,228 @@
 slug: moises
 locale: es
 title: "Ninguno dijo que fuera caro"
-tagline: "UX Research sobre Moises — por qué los usuarios no convierten a premium"
+tagline: "UX Research sobre Moises — por qué los músicos no convierten a premium"
 date: "2026-08"
 order: 1
 status: done
 type: ux-research
-tags: ["UX Research", "Entrevistas", "Encuesta", "Pruebas de usabilidad", "Figma", "Miro"]
+tags: ["UX Research", "Entrevistas", "Encuesta NPS/SUS", "Test de usabilidad", "Figma", "Miro"]
 featured: true
-liveUrl: "https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7"
-pdfUrl: "/projects/moises/case-study.pdf"
+prototypeUrl: "https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7"
+boardUrl: "https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236"
+highlights:
+  - value: "0 %"
+    label: "logró bajar de plan sin cancelar (0/5)"
+  - value: "76.1"
+    label: "SUS — benchmark 68"
+  - value: "+13.6"
+    label: "NPS — 22 respuestas"
 coverImage: "/projects/moises/cover.png"
-coverAlt: "Cover del case study de Moises con las métricas clave: NPS +13.6, SUS 76.1, 0% de éxito en la tarea de bajar de plan"
-description: "Investigación UX autoiniciada sobre por qué los músicos no convierten a premium en Moises: entrevistas, encuesta y prueba de usabilidad con línea base medida (SUS 76.1, NPS +13.6), resuelta con un pivot verificado en captura real."
+coverAlt: "Portada del proyecto Moises con las métricas clave: NPS +13.6, SUS 76.1, 0 % de éxito en la tarea de bajar de plan"
+description: "Investigación UX independiente sobre por qué los músicos no convierten a premium en Moises: entrevistas, encuesta y test de usabilidad con línea base medida (SUS 76.1, NPS +13.6), resuelta con un pivot verificado en una sesión real."
 ---
 
-> Proyecto de investigación **autoiniciado**, sin vínculo comercial ni acceso a datos internos de Moises. El reto de negocio se construyó a partir de investigación de escritorio sobre un modelo freemium público. Todos los participantes fueron anonimizados.
+<Callout title="Investigación independiente">
+Sin acceso a datos internos de Moises. El reto de negocio se construyó a partir de investigación de escritorio sobre un modelo freemium público. Todos los participantes fueron anonimizados.
+</Callout>
 
-## El problema
+## Contexto y problema
 
-**Moises** es una app freemium para músicos que usa IA para separar pistas de una canción, detectar acordes y cambiar tono y tempo. Como en todo modelo freemium, el negocio no vive de quien descarga la app — vive del porcentaje que convierte a pago. Mover esa conversión de 3% a 4% no es una mejora del 1%: es **33% más de ingresos** sobre la misma base de usuarios, sin gastar un peso en adquisición.
+<Quote who="Punto de partida del proyecto">
+Le pregunté a 6 músicos por qué no pagaban Moises. Ninguno dijo que fuera caro.
+</Quote>
+
+**Moises** es una app freemium para músicos: separa las pistas de una canción con IA (voz, batería, bajo, otros), detecta acordes y cambia tono y tempo. Como en todo modelo freemium, el negocio no vive de quien descarga la app — vive del porcentaje que convierte a pago. Mover esa conversión de 3 % a 4 % no es una mejora del 1 %: es **33 % más de ingresos** sobre la misma base de usuarios, sin gastar un peso en adquisición.
 
 **Pregunta de investigación:** ¿qué motiva o frena a un músico a la hora de pagar por una herramienta como Moises?
 
-Un mes de desk research (46+ reseñas de App Store, Play Store y PissedConsumer, más 28 capturas de TikTok) ya apuntaba a algo que ninguna hipótesis inicial capturaba del todo: el patrón más repetido no era "es caro" — era **desconfianza en el cobro recurrente** y en poder cancelar o cambiar de plan sin fricción.
+### Hipótesis de partida
 
-## Método mixto
+Declaradas antes de investigar — para poder equivocarme en público, no para confirmarlas.
 
-- **6 entrevistas en profundidad**, con reclutamiento deliberado (comparte cuenta, paga individual, usa el free puro, bajó de plan) — el porqué detrás del comportamiento.
-- **Encuesta cerrada** (NPS + SUS + Likert): 59 respuestas totales, 22 completas — el cuánto, a escala.
-- **Prueba de usabilidad con 5 personas**, sobre la app real de Moises, midiendo una línea base antes de proponer cualquier cambio.
+| | Hipótesis |
+|---|---|
+| **H1** | No convierten porque no conocen las funciones premium, no porque no las quieran. |
+| **H2** | El paywall aparece en un momento de frustración, no de valor percibido. |
+| **H3** | El límite del plan gratuito es lo bastante generoso — no hay presión real para pagar. |
+| **H4** | La barrera principal es el precio o el método de pago. |
 
-Las 6 entrevistas produjeron 16 insights, agrupados a mano en un mapa de afinidad de 8 clusters, y contrastados por separado con clustering automático de Miro AI sobre las mismas notas — sin indicarle los grupos — como forma de validar el análisis cualitativo.
+## Desk research: la primera señal
+
+Un mes de investigación de escritorio — más de 46 reseñas leídas en App Store, Play Store y PissedConsumer, y 28 capturas de TikTok — ya apuntaba a algo que ninguna hipótesis capturaba del todo: el patrón más repetido no era "es caro". Era **desconfianza en el cobro recurrente** y en poder cancelar o cambiar de plan sin fricción.
+
+<div className="grid grid-cols-2 gap-6">
+  <Figure
+    src="/projects/moises/resena-app-store.jpg"
+    alt="Reseña de un usuario en App Store que pagó el plan Pro y describe la calidad del audio como acuosa y comprimida"
+    caption="Reseña en App Store: pagó el plan Pro y describe la calidad como «acuoso, comprimido y horrible» — expectativa de valor incumplida, no un problema de precio."
+    width={830}
+    height={1200}
+  />
+  <Figure
+    src="/projects/moises/tiktok-limite.jpg"
+    alt="Comentarios en TikTok sobre el límite del plan gratuito de Moises"
+    caption="Fricción con el límite gratuito documentada en comentarios de TikTok — el mismo patrón que después confirmarían las entrevistas."
+    width={554}
+    height={1200}
+  />
+</div>
+
+## Estrategia: método mixto
+
+**Objetivo:** comprender los motivadores y barreras que determinan la decisión de un músico de pagar o no por funciones premium en Moises, para producir recomendaciones de producto que mejoren la conversión free→premium.
+
+Lo cualitativo dice el *porqué*; lo cuantitativo dice el *cuánto*. Y sin un test de usabilidad con línea base sobre el producto actual, no hay forma de demostrar después que el research mejoró algo.
+
+| Método | Qué aporta |
+|---|---|
+| **6 entrevistas en profundidad** | El porqué — incluyendo comportamientos que no se declaran en formularios cerrados. |
+| **Encuesta (NPS + SUS + Likert)** | El cuánto — dimensiona a escala los patrones vistos en entrevistas. |
+| **Test de usabilidad (5 personas)** | Línea base de Task Success Rate sobre el flujo real — evidencia de impacto, no solo opinión. |
+
+**Reclutamiento deliberado.** Las 6 entrevistas cubrieron a propósito distintas relaciones con el pago: comparte cuenta, paga individual, usa solo el plan gratuito, bajó de plan. El screener de 6 preguntas evitó los sí/no directos sobre el producto, para no delatar el foco del estudio desde el arranque.
+
+## Cualitativo: de 6 entrevistas a 16 insights
+
+Las entrevistas produjeron **16 insights** etiquetados por tipo (punto de dolor, motivación, barrera de uso o pago, comportamiento inesperado, estrategia de evasión). Se agruparon a mano en Miro en **8 clusters**.
+
+<Figure
+  src="/projects/moises/miro-afinidad.jpg"
+  alt="Mapa de afinidad en Miro con 16 insights agrupados manualmente en 8 clusters"
+  caption="Mapa de afinidad — agrupación manual, 8 clusters construidos directo desde los 16 insights."
+  width={1800}
+  height={1192}
+/>
+
+Por separado, se corrió el agrupamiento automático de **Miro AI** sobre las mismas 16 notas, sin indicarle los clusters propuestos. Coincidió exactamente en los temas más "puros" — paywall/frustración y objeción ética a la IA — y divergió en los compuestos: separó la objeción al pago perpetuo de la fricción al cambiar de plan, algo que la agrupación original trataba como un solo fenómeno. Fue una corrección útil, no un empate técnico.
+
+<Figure
+  src="/projects/moises/miro-ai.jpg"
+  alt="Agrupamiento automático generado por Miro AI sobre los mismos 16 insights"
+  caption="Agrupamiento automático de Miro AI sobre las mismas 16 notas — 3 de los 8 clusters resultantes."
+  width={2000}
+  height={810}
+/>
+
+## Cuantitativo: la encuesta
+
+<Metrics
+  items={[
+    { value: "+13.6", label: "NPS final (promedio 7.27)" },
+    { value: "76.1", label: "SUS general (benchmark: 68)" },
+    { value: "22", label: "respuestas completas, de 59 totales" },
+  ]}
+/>
+
+El screener original filtraba por "app más usada" y descartaba al 93 % de la muestra real por un error de diseño. Se corrigió a mitad de campaña y quedó documentado como pivot, no oculto.
+
+Un SUS de 76.1 — por encima del benchmark, y más alto aún entre quienes pagan individual (**86.6**) — confirma lo que ya decían las entrevistas: **Moises no tiene un problema de usabilidad core.** La barrera de conversión es otra cosa.
 
 ## El pivot: cuando dos datos se contradicen
 
-Un insight de entrevista chocaba, en apariencia, con una reseña recolectada meses antes en el desk research:
+Un insight de entrevista contradecía, en apariencia, una reseña recolectada meses antes en el desk research:
 
-> "Se agradece que ya está sistematizado y que tiene un botón de cancelar suscripción... tener esa libertad está chido." — Fakir, entrevista
+<Quote who="Entrevista 5">
+Se agradece que ya está sistematizado y que tiene un botón de cancelar suscripción… tener esa libertad está chido.
+</Quote>
 
-> "Tengo el plan pro... e intenté cambiarlo al premium... solo me aparece agregar método de pago." — Moy HL, reseña de App Store
+<Quote who="Reseña en App Store">
+Tengo el plan Pro… e intenté cambiarlo al Premium… solo me aparece agregar método de pago.
+</Quote>
 
-En vez de promediar o descartar uno de los dos datos, se trató la contradicción como una hipótesis a verificar: **cancelar y bajar de plan podían ser dos flujos distintos**, con experiencias distintas. Se agregó como tarea explícita a la prueba de usabilidad.
+En vez de promediar o descartar uno de los dos datos, se trató la contradicción como una hipótesis a verificar: **cancelar del todo y bajar de plan podían ser dos flujos distintos**, con experiencias distintas. Se agregó como tarea explícita al test de usabilidad moderado.
 
-**Resultado — 5 personas, 2 tareas, sobre la app real:**
+### Resultado: 5 personas, 2 tareas, sobre la app real
 
-| Tarea | Éxito |
-|---|---|
-| A — activar valor premium | 40% (2/5) |
-| B — bajar de plan sin cancelar | **0% (0/5)** |
+| Participante | Tarea A — activar valor premium | Tarea B — bajar de plan sin cancelar |
+|---|---|---|
+| P1 (plan Pro) | ✅ | ❌ Llega al portal real de Stripe; solo ve «Cancelar suscripción» |
+| P2 (plan gratuito) | ✅ | ⚠️ No concluyente — solo demuestra el upgrade gratuito→Premium |
+| P3 (plan Premium) | ⚠️ | ❌ Llega a «Administrar suscripción» pero no entra al flujo |
+| P4 (plan Premium) | ⚠️ | ❌ Mismo punto de fuga |
+| P5 (plan Pro) | ❌ | ❌ Callejón sin salida, sin ningún control visible |
+| **Task Success Rate** | **40 % (2/5)** | **0 % (0/5)** |
 
-El caso más determinante: Mari, la única sesión con cuenta Pro real, siguió la ruta correcta (Planes → Administrar suscripción) y la app la redirigió al portal real de facturación de Stripe — verificado con una captura de pantalla real, no solo con su reporte. La única acción visible ahí era "Cancelar suscripción": ningún control para cambiar de plan.
+El caso más determinante: la participante 1, única sesión con cuenta Pro real, siguió la ruta correcta (Planes → Administrar suscripción) y la app la redirigió al portal real de facturación de Stripe — verificado con captura de pantalla, no solo con su reporte.
 
-**Conclusión:** cancelar del todo sí es fácil; cambiar a un plan más barato sin cancelar, no. El estudio no demuestra que el downgrade sea técnicamente imposible en el backend — demuestra que, siguiendo las rutas de navegación disponibles, ningún participante pudo descubrirlo ni ejecutarlo.
+<Figure
+  src="/projects/moises/stripe-suscripcion.jpg"
+  alt="Portal de facturación de Stripe durante la sesión real: la única acción visible es Cancelar suscripción"
+  caption="billing.stripe.com, sesión real de la participante 1: la única acción visible es «Cancelar suscripción» — sin ningún control para cambiar de plan."
+  width={1496}
+  height={486}
+/>
 
-## Los números
+**Conclusión:** no había contradicción — son dos flujos distintos con experiencias distintas. Cancelar del todo sí es fácil; cambiar a un plan más barato sin cancelar, no. El estudio no demuestra que el downgrade sea técnicamente imposible en el backend: demuestra que, siguiendo las rutas de navegación disponibles, ningún participante pudo descubrirlo ni ejecutarlo.
 
-- **NPS final: +13.6** (promedio 7.27)
-- **SUS: 76.1** — por encima del benchmark (68), y más alto aún entre quienes pagan individual (86.6)
+## Síntesis: matriz impacto-esfuerzo
 
-El SUS alto confirma lo que ya decían las entrevistas: Moises no tiene un problema de usabilidad core. La barrera de conversión es otra cosa, y la prueba de la tarea B la señala con precisión.
+Las oportunidades salieron directo de los 16 insights y el mapa de afinidad, priorizadas por impacto y esfuerzo.
+
+| Oportunidad | Impacto | Esfuerzo | Cuadrante |
+|---|---|---|---|
+| Banner de valor premium contextual | Alto | Bajo | **Quick win** |
+| Onboarding segmentado por rol | Medio | Bajo | **Quick win** |
+| «Gestionar mi plan» con downgrade visible | Medio | Bajo | **Quick win** |
+| Changelog / roadmap visible en la cuenta | Medio | Bajo | **Quick win** |
+| Plan dúo/familiar formal | Alto | Medio | Apuesta grande |
+| Plan perpetuo / lifetime | Alto | Alto | Apuesta grande |
+| Mensaje para el segmento con objeción ética a la IA | Bajo | — | Reconsiderar |
+
+### El insight que no cabía en ninguna hipótesis
+
+<Quote who="Entrevista 2">
+Yo me opongo mucho al uso de inteligencia artificial para creación de música… por temas éticos propios, yo no usaría Moises en ese ámbito.
+</Quote>
+
+Apareció con solo 2 de 6 entrevistas completas. No es una barrera de precio ni de confianza: es una postura de valores. La recomendación correcta no es rediseñar nada para este segmento — es **dejar de gastar esfuerzo de conversión ahí**, porque probablemente nunca convierte sin importar cuánto mejore el producto.
 
 ## Del research al prototipo
 
-A partir de esta evidencia se construyó un prototipo en Figma: **4 pantallas clave** (no un rediseño completo) sobre los puntos exactos donde el research encontró fricción, conectadas con clicks reales — onboarding con pregunta de rol, banner de valor premium contextual en el momento en que el usuario topa el límite gratuito, comparativa de planes, y una sección "Gestionar mi plan" con downgrade al mismo nivel de visibilidad que cancelar.
+A partir de esta evidencia se construyó un prototipo en Figma: **4 pantallas clave**, no un rediseño completo, sobre los puntos exactos donde el research encontró fricción, conectadas con clics reales.
 
-**Recomendaciones priorizadas en una matriz impacto-esfuerzo:**
+<Screens
+  items={[
+    { src: "/projects/moises/prototipo-1.png", label: "1 · Onboarding por rol" },
+    { src: "/projects/moises/prototipo-2.png", label: "2 · Valor premium al topar el límite" },
+    { src: "/projects/moises/prototipo-3.png", label: "3 · Qué obtienes con Premium" },
+    { src: "/projects/moises/prototipo-4.png", label: "4 · Gestionar mi plan" },
+  ]}
+  caption="Prototipo navegable en Figma con la paleta real de Moises. Cambiar de plan queda al mismo nivel de visibilidad que cancelar."
+/>
 
-- Dar a "cambiar de plan" la misma visibilidad que ya tiene "cancelar" — la más urgente: la prueba la confirmó en 0 de 5 casos.
-- Mostrar el valor de premium justo en el momento en que el usuario topa el límite gratuito, no escondido en un FAQ.
-- Explorar un plan perpetuo y un plan dúo/familiar formal, que capturen como ingreso legítimo un comportamiento que hoy ya existe gratis (compartir cuenta, multicuentas).
-- No invertir esfuerzo de conversión en el segmento con objeción ética a la IA — no convierte con mejor diseño, sin importar cuánto mejore el producto.
+**Cómo la evidencia cambió la arquitectura propuesta:**
 
-## Artefactos complementarios
+- Sección **«Gestionar mi plan»** con downgrade al mismo nivel de visibilidad que cancelar — justificada directamente por el 0 % de la tarea B.
+- **Banner de valor premium contextual**, en el momento exacto en que el usuario topa el límite gratuito, no escondido en un FAQ.
+- **Onboarding con pregunta de rol** (intérprete vs. productor/compositor) — el plan gratuito ya es "suficiente" para uno de los dos segmentos.
 
-[Tablero de Miro](https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236) (mapa de afinidad + comparación con Miro AI) · [Prototipo interactivo en Figma](https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7) · [Video de storytelling](https://drive.google.com/file/d/1B7ZFBPbPoFlHOGFy1L4U3x4eQWaoskjJ/view?usp=sharing) (guion ABT)
+## Recomendaciones y next steps
+
+**Recomendaciones, por urgencia:**
+
+1. Dar a «cambiar de plan» la misma visibilidad que ya tiene «cancelar» — la más urgente: el test lo confirmó en 0 de 5 casos.
+2. Mostrar el valor de premium justo cuando el usuario topa el límite gratuito.
+3. Explorar un plan perpetuo y un plan dúo formal, que capturen como ingreso legítimo un comportamiento que hoy ya existe gratis (cuentas compartidas, multicuentas).
+4. Dejar de invertir esfuerzo de conversión en el segmento con objeción ética a la IA — no convierte con mejor diseño.
+
+**Next steps:**
+
+- Implementar la pantalla «Gestionar mi plan» y volver a medir el Task Success Rate de la tarea B — el objetivo es que suba de 0 %.
+- Cruzar con analítica interna de Moises si el downgrade invisible correlaciona con cancelaciones evitables.
+- Pilotear el plan dúo/familiar con el perfil que ya paga y usa en pareja (evidencia directa en entrevistas).
+- Redirigir el esfuerzo de mensajes de conversión hacia los 4 quick wins de la matriz.
+
+## Impacto en el negocio
+
+Este research convirtió una suposición de negocio («el problema es el precio») en una causa raíz específica, medida y accionable: la desconfianza no está en el monto, está en el proceso de cambiar de plan — confirmado con **0 % de éxito en una tarea real**, no con una opinión. Eso evita meses de esfuerzo mal dirigido en descuentos o rediseños de precio que no habrían resuelto nada, y apunta la inversión de diseño exactamente a los cuatro cambios de menor esfuerzo y mayor impacto.
+
+## Storytelling en video
+
+<Video
+  src="/projects/moises/video-abt.mp4"
+  poster="/projects/moises/cover.png"
+  caption="Resumen del proyecto en formato ABT (And · But · Therefore) — 3 min."
+/>
+
+Artefactos: [tablero de Miro](https://miro.com/app/board/uXjVHy_y8mU=/?share_link_id=524538184236) (mapa de afinidad + comparación con Miro AI) · [prototipo interactivo en Figma](https://www.figma.com/design/nGGNKAlA2WcHHjdhPAy2x7).

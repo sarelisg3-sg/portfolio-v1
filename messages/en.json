@@ -25,7 +25,6 @@
     "view_site": "Visit site",
     "view_repo": "GitHub",
     "view_legacy": "Previous version",
-    "view_case_study_pdf": "Download full PDF",
     "status": {
       "done": "Completed",
       "in_progress": "In progress",
@@ -35,10 +34,14 @@
       "redesign": "Redesign",
       "frontend": "Frontend",
       "ux_deep_dive": "UX Deep Dive",
-      "ux_research": "UX Research Project",
+      "ux_research": "UX Research",
       "external": "External project",
       "design_system": "Design System"
-    }
+    },
+    "view_prototype": "View Figma prototype",
+    "view_board": "Miro board",
+    "view_full_pdf": "View full project (PDF)",
+    "on_this_page": "On this page"
   },
   "about": {
     "title": "About",
