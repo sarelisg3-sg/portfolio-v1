@@ -134,16 +134,13 @@ Before drawing a single screen, I validated how users expect functionality to be
 
 With the architecture validated, I defined the **task flow** for the core use case — parking — and expanded it into a full **user flow** including decisions and error paths: does the rate match? is the time right? confirm the payment?
 
-<Steps
-  items={[
-    "Taps “Park now”",
-    "Sees the rates for the location detected by geolocation",
-    "Chooses the time for their registered vehicle",
-    "Selects automatic payment",
-    "Confirms the payment",
-    "Gets the confirmation and the timer starts",
-  ]}
-  caption="Task flow for the core use case: parking."
+<Figure
+  src="/projects/parkzone/taskflow-estacionar.png"
+  alt="Task flow for the core use case: parking"
+  caption="Task flow for the core use case: parking — scroll sideways to follow it."
+  width={4000}
+  height={251}
+  scroll
 />
 
 <Figure

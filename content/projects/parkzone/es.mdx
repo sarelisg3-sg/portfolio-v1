@@ -134,16 +134,13 @@ Antes de dibujar una sola pantalla, validé cómo los usuarios esperan que se ag
 
 Con la arquitectura validada, definí el **taskflow** del caso de uso principal — estacionar — y lo bajé a un **userflow** completo que incluye las decisiones y los caminos de error: ¿coincide con la tarifa?, ¿el tiempo es correcto?, ¿confirmar el pago?
 
-<Steps
-  items={[
-    "Selecciona «Estacionar ahora»",
-    "Ve las tarifas de la ubicación detectada por geolocalización",
-    "Elige el tiempo para su vehículo registrado",
-    "Selecciona pago automático",
-    "Confirma el pago",
-    "Recibe la confirmación y el tiempo empieza a correr",
-  ]}
-  caption="Taskflow del caso de uso principal: estacionar."
+<Figure
+  src="/projects/parkzone/taskflow-estacionar.png"
+  alt="Taskflow del caso de uso principal: estacionar"
+  caption="Taskflow del caso de uso principal: estacionar — desliza para recorrerlo."
+  width={4000}
+  height={251}
+  scroll
 />
 
 <Figure
