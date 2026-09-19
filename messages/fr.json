@@ -21,7 +21,7 @@
     "section_title": "Projets",
     "section_subtitle": "Travaux sélectionnés — design, branding et expérience utilisateur.",
     "view_project": "Voir le projet",
-    "view_live": "Voir la démo",
+    "view_live": "Essayer l'app",
     "view_site": "Visiter le site",
     "view_repo": "GitHub",
     "view_legacy": "Version précédente",
@@ -33,7 +33,7 @@
     "type": {
       "redesign": "Refonte",
       "frontend": "Frontend",
-      "ux_deep_dive": "UX Deep Dive",
+      "ux_deep_dive": "Recherche → Produit",
       "ux_research": "UX Research",
       "external": "Projet externe",
       "design_system": "Design System"

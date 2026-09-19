@@ -3,89 +3,287 @@ slug: parkzone
 locale: fr
 title: "ParkZone"
 tagline: "Une app unifiée de parcmètres pour Mexico — de la recherche au code"
-date: "2026-07"
+date: "Design 2024 · Code 2026"
 order: 2
 status: done
 type: ux-deep-dive
-tags: ["UX Research", "Card Sorting", "Architecture de l'information", "Tests utilisateurs", "Figma", "Next.js"]
+tags: ["UX Research", "Card Sorting", "Architecture de l'information", "Tests d'utilisabilité", "Figma", "Next.js"]
 featured: true
 liveUrl: "https://parkzone-rho.vercel.app"
+prototypeUrl: "https://www.figma.com/proto/jxTcl7UwANiJF664uWiR7b/V2---Prototipo-funcional-versi%C3%B3n-2-calidad-alta?node-id=4092-58&scaling=scale-down&content-scaling=fixed&starting-point-node-id=19%3A158&page-id=0%3A1"
 repoUrl: "https://github.com/sarelisg3-sg/parkzone"
-pdfUrl: "/projects/parkzone/case-study.pdf"
+highlights:
+  - value: "4 sur 5"
+    label: "utilisateurs ont réussi les 5 tâches"
+  - value: "127 s"
+    label: "en moyenne pour tout le parcours"
+  - value: "4.2/5"
+    label: "satisfaction moyenne"
 coverImage: "/projects/parkzone/cover.png"
 coverAlt: "Écran d'accueil de ParkZone sur un iPhone — carte de Polanco avec un bouton Stationner"
-description: "Étude de cas UX complète : une app qui unifie les parcmètres fragmentés de Mexico. Recherche, card sorting, prototype Figma validé avec des utilisateurs, et reconstruction complète du prototype en app interactive Next.js."
+description: "App unifiée de parcmètres pour Mexico, de la recherche au code : card sorting avec 25 personnes, prototype validé auprès d'utilisateurs et build fonctionnel en Next.js."
 ---
-
-> **Démo interactive :** le prototype complet est implémenté en code et utilisable
-> via le lien ci-dessus — onboarding, flux de stationnement avec compte à rebours
-> en direct, extension de temps et gestion de compte.
 
 ## Le problème
 
-À Mexico, les parcmètres sont gérés par **des applications différentes selon la
-zone**. Un conducteur qui se déplace dans la ville a besoin de plusieurs apps,
-chacune avec son inscription, son interface et son mode de paiement — source de
-confusion, de perte de temps et d'**amendes évitables**.
+À Mexico, les parcmètres sont gérés par **des applications différentes selon l'arrondissement**. Un conducteur qui se déplace dans la ville doit installer et apprendre plusieurs apps, chacune avec sa propre inscription, son interface et son moyen de paiement.
 
-L'analyse des apps existantes (Blinkay, Parkum, Mueve Ciudad) a révélé des
-plaintes récurrentes : pannes de GPS, erreurs de synchronisation des horaires,
-problèmes de rechargement du solde et interfaces compliquées.
+J'ai analysé les trois apps qui dominent le marché — Blinkay, Mueve Ciudad et Parkum — et leurs avis répètent inlassablement les mêmes plaintes :
 
-## Utilisateur cible
+| App | Plaintes récurrentes dans les avis |
+|---|---|
+| **Blinkay** | Erreurs de synchronisation des horaires · rechargement du solde · dysfonctionnements du GPS |
+| **Mueve Ciudad** | Échecs de chargement et de synchronisation · absence de couverture GPS · interface compliquée |
+| **Parkum** | Problèmes d'accès et de fonctionnement · mauvais service client · défaillances du blocage de véhicule |
 
-Le projet s'est d'abord concentré sur l'arrondissement Miguel Hidalgo — la zone
-comptant le plus de parcmètres de la ville, avec un usage estimé à plus de
-**5 millions de sessions par an**.
+**Pourquoi c'est important :** cette fragmentation n'est pas qu'un désagrément. Elle se traduit par des **amendes évitables** lorsqu'un conducteur ne parvient pas à payer à temps parce que l'app de cette zone tombe en panne — ou n'est tout simplement pas installée.
 
-Le profil principal : **Daniela, 34 ans, architecte** et conductrice régulière.
-Elle a besoin de gérer son stationnement de façon centralisée, car le chaos
-routier et la multiplication des apps lui font perdre un temps précieux.
+## Périmètre
+
+<Metrics
+  items={[
+    { value: "~5,24 M", label: "sessions de parcmètre par an à Miguel Hidalgo (estimation)" },
+    { value: "26 000", label: "places de stationnement dans l'arrondissement" },
+    { value: "3", label: "apps qui se disputent aujourd'hui le même conducteur" },
+  ]}
+/>
+
+Je me suis concentrée sur l'arrondissement de **Miguel Hidalgo**, celui qui compte la plus forte densité de parcmètres de la ville. À partir de données publiques sur les places et le tarif moyen, j'ai estimé un usage d'environ 5,24 millions de sessions par an dans ce seul arrondissement : un volume suffisant pour justifier une solution dédiée avant de passer à l'échelle de toute la ville.
+
+## Utilisateurs
+
+Pour comprendre pour qui je concevais, j'ai construit deux profils à partir des motifs de plainte identifiés dans la recherche :
+
+<div>
+  <Figure
+    src="/projects/parkzone/persona-daniela.jpg"
+    alt="Persona : Daniela Morales, 34 ans, architecte, conductrice régulière à Mexico"
+    caption="Daniela, 34 ans, architecte — conductrice régulière. Sa frustration n'est pas le paiement, c'est la friction de gérer plusieurs systèmes."
+    width={1432}
+    height={750}
+  />
+  <Figure
+    src="/projects/parkzone/persona-ricardo.jpg"
+    alt="Persona : Ricardo Martínez, 40 ans, entrepreneur, utilisateur occasionnel"
+    caption="Ricardo, 40 ans, entrepreneur — utilisateur occasionnel. Les apps de parcmètre ne sont pas sa priorité, et cela lui a coûté des amendes."
+    width={1442}
+    height={766}
+  />
+</div>
+
+**Pourquoi deux personas et non un seul :** Daniela représente l'utilisatrice régulière qui a besoin d'efficacité ; Ricardo, l'utilisateur occasionnel qui a besoin de simplicité avant tout. Concevoir pour les deux m'a obligée à privilégier la clarté aux fonctions avancées.
+
+<Callout title="L'insight qui a guidé le design">
+Daniela a besoin de gérer les parcmètres de façon centralisée, car le chaos routier et l'usage de plusieurs applications lui prennent un temps précieux qu'elle pourrait consacrer à ses activités personnelles et professionnelles.
+</Callout>
 
 ## Architecture de l'information
 
-La structure de l'app a été définie par **card sorting** : matrice de similarité,
-dendrogrammes (Actual Agreement Method) et standardization grid. Les conclusions
-ont guidé le design :
+Avant de dessiner le moindre écran, j'ai validé comment les utilisateurs s'attendent à voir les fonctionnalités regroupées — et non comment je supposais qu'elles devaient l'être. J'ai mené un **card sorting avec 25 personnes sur UXtweak** sur les fonctions candidates (géolocalisation, paiement, sélection de la durée, gestion du véhicule, compte, notifications) et analysé les résultats avec une matrice de similarité, un dendrogramme (Actual Agreement Method) et une standardization grid.
 
-1. Les fonctions du flux de stationnement (temps, tarifs, paiement, extension)
-   sont perçues comme un groupe cohérent — elles doivent rester ensemble.
-2. Les fonctions administratives (compte, moyens de paiement, véhicule) forment
-   des sections séparées.
-3. Les actions les plus fréquentes (géolocalisation, stationner, paiement)
-   doivent être accessibles dès le premier écran.
+<Figure
+  src="/projects/parkzone/cs-standardization-grid.png"
+  alt="Standardization grid du card sorting : fréquence à laquelle chaque carte a été placée dans chaque catégorie"
+  caption="Standardization grid — les utilisateurs séparent nettement le parcours de stationnement des réglages de compte et de véhicule."
+  width={2000}
+  height={907}
+/>
 
-## La solution (MVP)
+<div>
+  <Figure
+    src="/projects/parkzone/cs-dendograma.png"
+    alt="Dendrogramme du card sorting selon la méthode Actual Agreement"
+    caption="Dendrogramme (AAM) : les fonctions de stationnement — durée, tarifs, prolongation — se regroupent."
+    width={2000}
+    height={739}
+  />
+  <Figure
+    src="/projects/parkzone/cs-matriz-similitud.png"
+    alt="Matrice de similarité du card sorting"
+    caption="Matrice de similarité : sélection de la durée, tarifs, paiement et prolongation forment un groupe fortement lié."
+    width={1030}
+    height={906}
+  />
+</div>
 
-Une app qui détecte le parcmètre par **géolocalisation automatique**, affiche
-tarifs et horaires, permet de **sélectionner la durée** de stationnement et
-**paie automatiquement** avec la carte enregistrée — dans toutes les zones de la
-ville.
+**Ce que j'ai trouvé :**
+
+- Les fonctions du parcours de stationnement (durée, tarifs, paiement, prolongation) sont perçues comme **un groupe cohérent** : elles doivent vivre ensemble, pas être dispersées dans des menus distincts.
+- Les fonctions administratives (compte, moyens de paiement, véhicule) forment **des sections séparées**, moins prioritaires au quotidien.
+- Les notifications et la déconnexion sont perçues comme **périphériques** : elles ne doivent pas concurrencer les actions fréquentes.
+
+**J'ai donc décidé** de restructurer le modèle initial — regroupé par type d'écran — en un modèle regroupé **par intention de l'utilisateur** : Accueil et Navigation · Stationnement et Paiement · Gestion des véhicules · Compte et Réglages · Notifications et Assistance.
+
+<Figure
+  src="/projects/parkzone/ia-modelo-previo.png"
+  alt="Architecture de l'information avant le card sorting"
+  caption="Modèle avant le card sorting — regroupé par type d'écran."
+  width={4000}
+  height={1549}
+/>
+
+<Figure
+  src="/projects/parkzone/ia-modelo-nuevo.png"
+  alt="Architecture de l'information après le card sorting"
+  caption="Modèle après le card sorting — regroupé par intention de l'utilisateur."
+  width={4000}
+  height={1348}
+/>
+
+## De l'idée au parcours
+
+Une fois l'architecture validée, j'ai défini le **task flow** du cas d'usage principal — se garer — et je l'ai développé en un **user flow** complet incluant les décisions et les chemins d'erreur : le tarif correspond-il ? la durée est-elle correcte ? confirmer le paiement ?
+
+<Steps
+  items={[
+    "Sélectionne « Stationner maintenant »",
+    "Voit les tarifs du lieu détecté par géolocalisation",
+    "Choisit la durée pour son véhicule enregistré",
+    "Sélectionne le paiement automatique",
+    "Confirme le paiement",
+    "Reçoit la confirmation et le décompte démarre",
+  ]}
+  caption="Task flow du cas d'usage principal : se garer."
+/>
+
+<Figure
+  src="/projects/parkzone/userflow-completo.png"
+  alt="User flow complet avec décisions et chemins d'erreur"
+  caption="User flow — chaque décision a un chemin de correction ; aucune ne mène à une impasse."
+  width={3200}
+  height={2210}
+/>
+
+**Pourquoi c'est important :** c'est dans le user flow que j'ai détecté, avant de dessiner la moindre UI, que l'utilisateur doit pouvoir **confirmer ou corriger à chaque étape**. Cette décision est ensuite devenue les boutons « Annuler » et « Confirmer » présents de façon cohérente sur tous les écrans du parcours de paiement.
+
+## Du croquis à l'interface
+
+J'ai commencé à la main, sur papier, pour itérer vite sans m'engager sur une solution visuelle. J'ai ensuite transposé ces mêmes croquis en wireframes numériques basse fidélité, puis en fidélité moyenne, en vérifiant à chaque étape que la hiérarchie de l'information restait intacte.
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure
+    src="/projects/parkzone/boceto-1.jpg"
+    alt="Croquis à la main du parcours de paiement et des détails de stationnement"
+    width={1800}
+    height={1350}
+  />
+  <Figure
+    src="/projects/parkzone/boceto-2.jpg"
+    alt="Croquis à la main du choix du parcmètre et de la durée"
+    width={1800}
+    height={1350}
+  />
+</div>
+
+<Screens
+  cols={5}
+  width={859}
+  height={1911}
+  items={[
+    { src: "/projects/parkzone/wire-lofi-1.jpg" },
+    { src: "/projects/parkzone/wire-lofi-2.jpg" },
+    { src: "/projects/parkzone/wire-lofi-3.jpg" },
+    { src: "/projects/parkzone/wire-lofi-4.jpg" },
+    { src: "/projects/parkzone/wire-lofi-5.jpg" },
+  ]}
+  caption="Wireframes basse fidélité — accueil, choix du parcmètre, réglages, détails et paiement."
+/>
+
+<Screens
+  cols={5}
+  width={813}
+  height={1759}
+  items={[
+    { src: "/projects/parkzone/wire-midfi-1.jpg" },
+    { src: "/projects/parkzone/wire-midfi-2.jpg" },
+    { src: "/projects/parkzone/wire-midfi-3.jpg" },
+    { src: "/projects/parkzone/wire-midfi-4.jpg" },
+    { src: "/projects/parkzone/wire-midfi-5.jpg" },
+  ]}
+  caption="Fidélité moyenne — le même parcours avec une hiérarchie typographique et des composants définis."
+/>
+
+**Décision clé :** dès les croquis à la main, j'ai décidé que la **carte resterait l'arrière-plan permanent** de tout le parcours de stationnement (parcmètre, paramètres, détails, paiement). L'utilisateur ne perd jamais le contexte de l'endroit où il se trouve pendant qu'il décide de la durée à payer.
+
+## Prototype haute fidélité
+
+Avec le kit UI défini, j'ai construit le prototype complet dans Figma : **~39 écrans** comprenant un onboarding en 4 étapes, le parcours de stationnement, la prolongation de la durée et la gestion du compte, reliés par de vrais clics.
+
+<Screens
+  items={[
+    { src: "/projects/parkzone/hifi-00-welcome.png", label: "Bienvenue" },
+    { src: "/projects/parkzone/hifi-01-inicio.png", label: "Accueil — carte" },
+    { src: "/projects/parkzone/hifi-02-parquimetro.png", label: "Parcmètre" },
+    { src: "/projects/parkzone/hifi-03-parametros.png", label: "Paramètres" },
+    { src: "/projects/parkzone/hifi-04-detalles.png", label: "Détails" },
+    { src: "/projects/parkzone/hifi-05-pago.png", label: "Paiement" },
+    { src: "/projects/parkzone/hifi-06-sesion.png", label: "Session active" },
+    { src: "/projects/parkzone/hifi-07-extender.png", label: "Ajouter du temps" },
+  ]}
+  caption="Parcours principal du prototype — la carte reste en contexte ; chaque écran permet de confirmer ou d'annuler."
+/>
 
 ## Validation
 
-Le prototype haute fidélité dans Figma a été évalué par une **évaluation
-heuristique** (Nielsen) et des **tests d'utilisabilité avec 5 utilisateurs** sur
-un scénario réel : se garer au parcmètre A248, payer 1 heure, vérifier le temps
-restant, prolonger de 30 minutes et consulter l'historique des paiements.
+Avant de considérer le design comme terminé, je l'ai soumis à deux types de validation.
 
-- **127 secondes** en moyenne pour compléter les 5 tâches
-- **4 tâches sur 5** avec 100 % de réussite (la cinquième : 80 %)
-- **4,2/5** de satisfaction moyenne
+### Évaluation heuristique (Nielsen)
 
-Les résultats ont conduit à des améliorations de visibilité des boutons clés, de
-taille de texte et de feedback système.
+J'ai passé le prototype au crible des 10 principes d'utilisabilité. Il se comportait bien en cohérence, en correspondance avec le monde réel et en liberté de l'utilisateur, mais j'ai trouvé **deux vraies lacunes** :
+
+| Lacune | Ce qui manquait | Comment elle a été traitée |
+|---|---|---|
+| **Prévention des erreurs** | Rien n'empêchait de tenter de payer sans avoir sélectionné une durée. | Dans la version codée, le bouton de confirmation est **désactivé** tant qu'aucune durée valide n'est définie. |
+| **Gestion des erreurs système** | Le comportement en cas d'échec du paiement n'était pas défini. | Documenté comme prochaine étape : les états d'erreur de paiement (refus, hors ligne) sont restés hors du périmètre du MVP. |
+
+### Tests d'utilisabilité avec 5 utilisateurs
+
+J'ai conçu un scénario réel : se garer au parcmètre A248, payer 1 heure, vérifier le temps restant, prolonger de 30 minutes et consulter l'historique des paiements.
+
+<Metrics
+  items={[
+    { value: "127 s", label: "en moyenne pour réaliser les 5 tâches (95–180 s)" },
+    { value: "4 sur 5", label: "ont réalisé toutes les tâches sans aide" },
+    { value: "4.2/5", label: "satisfaction (design 4.5 · facilité 4.0 · rapidité 4.1)" },
+  ]}
+/>
+
+| Tâche | Réussite | Temps moyen |
+|---|---|---|
+| 1 · Sélectionner le parcmètre A248 | 100 % | 25 s |
+| 2 · Payer 1 heure | 100 % | 35 s |
+| 3 · Vérifier le temps restant | 100 % | 20 s |
+| 4 · Prolonger de 30 minutes | **80 %** | 37 s |
+| 5 · Consulter l'historique des paiements | 100 % | 10 s |
+
+| Utilisateur | Réussi | Temps | Erreurs | Commentaire |
+|---|---|---|---|---|
+| U1 | Oui | 120 s | 2 | « Je n'ai pas trouvé facilement le bouton pour prolonger la durée. » |
+| U2 | Oui | 95 s | 0 | « Tout était très intuitif, mais j'ajouterais une icône plus visible pour l'historique. » |
+| U3 | Non (tâche 4) | 180 s | 3 | « Je n'ai pas compris comment confirmer le paiement. » |
+| U4 | Oui | 110 s | 1 | « Le design est clair, mais certains textes sont petits. » |
+| U5 | Oui | 130 s | 2 | « Facile à utiliser, mais j'ai mis du temps à trouver l'option pour suivre l'état. » |
+
+**Le problème le plus fréquent :** faible visibilité du bouton « Prolonger » et de l'icône d'historique. J'ai donc décidé d'augmenter la taille et le contraste de ces éléments précis dans l'itération suivante — sans repenser tout le parcours — car le reste des métriques confirmait que la structure fonctionnait déjà.
 
 ## Du prototype au code
 
-Le prototype complet — les ~39 écrans, y compris l'onboarding en 4 étapes — est
-reconstruit en **véritable app interactive Next.js**, présentée dans un cadre
-d'iPhone comme le prototype original. La session de stationnement utilise un
-**compte à rebours en direct**, le total est calculé en temps réel selon le tarif
-(3,50 $ / 15 min), et des constats de l'évaluation heuristique ont été traités
-dans le code (par exemple, prévention des erreurs : impossible de confirmer sans
-sélectionner une durée).
+Le prototype Figma résolvait le problème sur le papier, mais je voulais prouver que la solution tenait aussi dans un produit réel : avec un état, des calculs en temps réel et des données qui persistent d'un écran à l'autre.
 
-Les tokens de design et les composants suivent l'architecture de mon
-[design system personnel](https://design-system-sare1.vercel.app), avec la gamme
-de marque recalculée au teal de ParkZone.
+J'ai reconstruit le prototype complet sous forme d'**app interactive en Next.js**, présentée dans un cadre d'iPhone comme le prototype d'origine. La session de stationnement utilise un **compte à rebours en direct**, le total est calculé en temps réel selon le tarif (3,50 $ / 15 min), et les constats de l'évaluation heuristique ont été traités directement dans le code.
+
+<AppEmbed
+  src="https://parkzone-rho.vercel.app"
+  title="ParkZone — app fonctionnelle"
+  caption="L'app réelle, ici même : connectez-vous, choisissez le parcmètre A248, payez une heure et prolongez la durée. Hébergée sur parkzone-rho.vercel.app."
+/>
+
+## Réflexion et apprentissages
+
+**1 · Moins d'utilisateurs, moins de certitude.** Avec seulement 5 utilisateurs en test, les résultats sont exploratoires, pas concluants. Si je refaisais le processus, je mènerais une seconde session après avoir appliqué les ajustements, au lieu de supposer qu'une correction visuelle suffit. Dans le card sorting, je testerais aussi les noms des catégories, pas seulement le regroupement.
+
+**2 · Le problème n'était pas la taille, mais l'état.** L'utilisateur qui a échoué à la tâche de confirmation du paiement n'a pas dit qu'il ne voyait pas le bouton — il a dit qu'il ne comprenait pas comment confirmer. Rien ne lui indiquait que sa sélection était déjà valide. C'est pourquoi, dans la version codée, le bouton reste désactivé tant qu'une durée valide n'est pas sélectionnée, au lieu d'être simplement agrandi.
+
+**3 · Le prototype peut « mentir ».** Dans Figma, deux calques peuvent sembler alignés même s'ils sont positionnés à l'œil. En codant l'infobulle du parcmètre avec de vraies positions sur la carte, un décalage est apparu que le design statique n'avait jamais révélé. Même chose pour le menu hamburger : dans Figma, c'était un bouton sans action ; le coder m'a obligée à décider ce qui se passe réellement à l'ouverture.
+
+**4 · Miguel Hidalgo n'est pas tout Mexico.** Le sélecteur de parcmètre est pensé pour 2 ou 3 repères visibles à la fois. À l'échelle de la ville, avec des milliers de parcmètres, il faudrait un regroupement sur la carte et une recherche par rue ou par quartier. J'ai aussi supposé un tarif fixe ; chaque arrondissement a le sien, cette donnée devrait donc venir du backend, par zone.

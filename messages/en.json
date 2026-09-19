@@ -21,7 +21,7 @@
     "section_title": "Projects",
     "section_subtitle": "Selected work — design, branding and user experience.",
     "view_project": "View project",
-    "view_live": "Live demo",
+    "view_live": "Try the app",
     "view_site": "Visit site",
     "view_repo": "GitHub",
     "view_legacy": "Previous version",
@@ -33,7 +33,7 @@
     "type": {
       "redesign": "Redesign",
       "frontend": "Frontend",
-      "ux_deep_dive": "UX Deep Dive",
+      "ux_deep_dive": "Research → Product",
       "ux_research": "UX Research",
       "external": "External project",
       "design_system": "Design System"

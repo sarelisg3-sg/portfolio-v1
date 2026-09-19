@@ -3,87 +3,287 @@ slug: parkzone
 locale: en
 title: "ParkZone"
 tagline: "A unified parking-meter app for Mexico City — from research to code"
-date: "2026-07"
+date: "Design 2024 · Code 2026"
 order: 2
 status: done
 type: ux-deep-dive
 tags: ["UX Research", "Card Sorting", "Information Architecture", "Usability Testing", "Figma", "Next.js"]
 featured: true
 liveUrl: "https://parkzone-rho.vercel.app"
+prototypeUrl: "https://www.figma.com/proto/jxTcl7UwANiJF664uWiR7b/V2---Prototipo-funcional-versi%C3%B3n-2-calidad-alta?node-id=4092-58&scaling=scale-down&content-scaling=fixed&starting-point-node-id=19%3A158&page-id=0%3A1"
 repoUrl: "https://github.com/sarelisg3-sg/parkzone"
-pdfUrl: "/projects/parkzone/case-study.pdf"
+highlights:
+  - value: "4 of 5"
+    label: "users completed all 5 tasks"
+  - value: "127 s"
+    label: "average for the full flow"
+  - value: "4.2/5"
+    label: "average satisfaction"
 coverImage: "/projects/parkzone/cover.png"
 coverAlt: "ParkZone home screen on an iPhone — Polanco map with a Park button"
-description: "Complete UX case study: an app unifying Mexico City's fragmented parking meters. Research, card sorting, a user-validated Figma prototype, and a full rebuild of the prototype as an interactive Next.js app."
+description: "Unified parking-meter app for Mexico City, from research to code: card sorting with 25 people, a user-validated prototype and a working Next.js build."
 ---
-
-> **Interactive demo:** the complete prototype is implemented in code and usable at
-> the link above — onboarding, parking flow with a live countdown, time extension,
-> and account management.
 
 ## The problem
 
-In Mexico City, parking meters are managed by **different apps depending on the
-zone**. A driver moving through the city needs several apps, each with its own
-signup, interface and payment method — causing confusion, wasted time and
-**avoidable fines**.
+In Mexico City, parking meters are run by **different apps depending on the borough**. A driver who moves around the city has to install and learn several apps, each with its own sign-up, interface and payment method.
 
-Analysis of existing apps (Blinkay, Parkum, Mueve Ciudad) revealed recurring
-complaints: GPS failures, schedule sync errors, balance top-up problems and
-complicated interfaces.
+I analysed the three apps that dominate the market — Blinkay, Mueve Ciudad and Parkum — and their reviews repeat the same complaints over and over:
 
-## Target user
+| App | Recurring complaints in reviews |
+|---|---|
+| **Blinkay** | Schedule sync errors · balance top-ups · GPS malfunctions |
+| **Mueve Ciudad** | Loading and sync failures · no GPS coverage · complicated interface |
+| **Parkum** | Access and operation issues · poor customer service · vehicle-lock failures |
 
-The project initially focused on the Miguel Hidalgo borough — the area with the
-most parking meters in the city, with an estimated usage above **5 million
-sessions per year**.
+**Why it matters:** this fragmentation isn't just an annoyance. It turns into **avoidable fines** when a driver can't pay in time because the app for that zone fails — or simply isn't installed.
 
-The primary profile: **Daniela, 34, an architect** and frequent driver. She needs
-to manage parking centrally because traffic chaos and juggling multiple apps take
-time away from her work.
+## Scope
+
+<Metrics
+  items={[
+    { value: "~5.24 M", label: "parking-meter sessions per year in Miguel Hidalgo (estimate)" },
+    { value: "26,000", label: "parking spaces in the borough" },
+    { value: "3", label: "apps competing today for the same driver" },
+  ]}
+/>
+
+I focused on the **Miguel Hidalgo** borough, the one with the highest density of parking meters in the city. Based on public data on parking spaces and average rates, I estimated ~5.24 million sessions a year in that borough alone: enough volume to justify a dedicated solution before scaling to the whole city.
+
+## Users
+
+To understand who I was designing for, I built two profiles from the complaint patterns found in the research:
+
+<div>
+  <Figure
+    src="/projects/parkzone/persona-daniela.jpg"
+    alt="User persona: Daniela Morales, 34, architect, frequent driver in Mexico City"
+    caption="Daniela, 34, architect — frequent driver. Her frustration isn't paying, it's the friction of managing multiple systems."
+    width={1432}
+    height={750}
+  />
+  <Figure
+    src="/projects/parkzone/persona-ricardo.jpg"
+    alt="User persona: Ricardo Martínez, 40, entrepreneur, occasional user"
+    caption="Ricardo, 40, entrepreneur — occasional user. Parking apps aren't his priority, and that has cost him fines."
+    width={1442}
+    height={766}
+  />
+</div>
+
+**Why two personas and not one:** Daniela represents the frequent user who needs efficiency; Ricardo, the occasional one who needs simplicity above all. Designing for both forced me to prioritise clarity over advanced features.
+
+<Callout title="The insight that guided the design">
+Daniela needs to manage parking meters from one place because traffic chaos and juggling multiple apps take valuable time away from her personal and professional life.
+</Callout>
 
 ## Information architecture
 
-The app's structure was defined through **card sorting**: similarity matrix,
-dendrograms (Actual Agreement Method) and a standardization grid. The conclusions
-guided the design:
+Before drawing a single screen, I validated how users expect functionality to be grouped — not how I assumed it should be. I ran a **card sort with 25 people in UXtweak** on the candidate functions (geolocation, payment, time selection, vehicle management, account, notifications) and analysed the results with a similarity matrix, a dendrogram (Actual Agreement Method) and a standardization grid.
 
-1. Parking-flow functions (time, rates, payment, extension) are perceived as one
-   coherent group — they must live together.
-2. Administrative functions (account, payment methods, vehicle) form separate
-   sections.
-3. The most frequent actions (geolocation, park, payment) must be reachable from
-   the first screen.
+<Figure
+  src="/projects/parkzone/cs-standardization-grid.png"
+  alt="Card-sort standardization grid: how often each card was placed in each category"
+  caption="Standardization grid — users clearly separate the parking flow from account and vehicle settings."
+  width={2000}
+  height={907}
+/>
 
-## The solution (MVP)
+<div>
+  <Figure
+    src="/projects/parkzone/cs-dendograma.png"
+    alt="Card-sort dendrogram using the Actual Agreement Method"
+    caption="Dendrogram (AAM): the parking functions — time, rates, extension — cluster together."
+    width={2000}
+    height={739}
+  />
+  <Figure
+    src="/projects/parkzone/cs-matriz-similitud.png"
+    alt="Card-sort similarity matrix"
+    caption="Similarity matrix: time selection, rates, payment and extension form a highly interrelated group."
+    width={1030}
+    height={906}
+  />
+</div>
 
-An app that detects the parking meter via **automatic geolocation**, shows rates
-and schedules, lets the user **select parking time** and **pays automatically**
-with the registered card — across every zone in the city.
+**What I found:**
+
+- The parking-flow functions (time, rates, payment, extension) are perceived as **one coherent group**: they should live together, not be scattered across menus.
+- Administrative functions (account, payment methods, vehicle) form **separate sections**, lower priority in daily use.
+- Notifications and log-out are perceived as **peripheral**: they shouldn't compete for space with frequent actions.
+
+**So I decided** to restructure the original model — grouped by screen type — into a model grouped **by user intent**: Home & Navigation · Parking & Payment · Vehicle Management · Account & Settings · Notifications & Support.
+
+<Figure
+  src="/projects/parkzone/ia-modelo-previo.png"
+  alt="Information architecture before the card sort"
+  caption="Model before the card sort — grouped by screen type."
+  width={4000}
+  height={1549}
+/>
+
+<Figure
+  src="/projects/parkzone/ia-modelo-nuevo.png"
+  alt="Information architecture after the card sort"
+  caption="Model after the card sort — grouped by user intent."
+  width={4000}
+  height={1348}
+/>
+
+## From idea to flow
+
+With the architecture validated, I defined the **task flow** for the core use case — parking — and expanded it into a full **user flow** including decisions and error paths: does the rate match? is the time right? confirm the payment?
+
+<Steps
+  items={[
+    "Taps “Park now”",
+    "Sees the rates for the location detected by geolocation",
+    "Chooses the time for their registered vehicle",
+    "Selects automatic payment",
+    "Confirms the payment",
+    "Gets the confirmation and the timer starts",
+  ]}
+  caption="Task flow for the core use case: parking."
+/>
+
+<Figure
+  src="/projects/parkzone/userflow-completo.png"
+  alt="Full user flow with decisions and error paths"
+  caption="User flow — every decision has a correction path; none leads to a dead end."
+  width={3200}
+  height={2210}
+/>
+
+**Why it matters:** the user flow is where I spotted, before drawing any UI, that the user needs to be able to **confirm or correct at every step**. That decision later became the “Cancel” and “Confirm” buttons that appear consistently on every screen of the payment flow.
+
+## From sketch to interface
+
+I started by hand, on paper, to iterate fast without committing to a visual solution. Then I moved those same sketches to low-fidelity digital wireframes, and finally to mid-fidelity, checking at every jump that the information hierarchy stayed intact.
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure
+    src="/projects/parkzone/boceto-1.jpg"
+    alt="Hand-drawn sketches of the payment flow and parking details"
+    width={1800}
+    height={1350}
+  />
+  <Figure
+    src="/projects/parkzone/boceto-2.jpg"
+    alt="Hand-drawn sketches of the meter and time selection flow"
+    width={1800}
+    height={1350}
+  />
+</div>
+
+<Screens
+  cols={5}
+  width={859}
+  height={1911}
+  items={[
+    { src: "/projects/parkzone/wire-lofi-1.jpg" },
+    { src: "/projects/parkzone/wire-lofi-2.jpg" },
+    { src: "/projects/parkzone/wire-lofi-3.jpg" },
+    { src: "/projects/parkzone/wire-lofi-4.jpg" },
+    { src: "/projects/parkzone/wire-lofi-5.jpg" },
+  ]}
+  caption="Low-fidelity wireframes — home, choose meter, settings, details and payment."
+/>
+
+<Screens
+  cols={5}
+  width={813}
+  height={1759}
+  items={[
+    { src: "/projects/parkzone/wire-midfi-1.jpg" },
+    { src: "/projects/parkzone/wire-midfi-2.jpg" },
+    { src: "/projects/parkzone/wire-midfi-3.jpg" },
+    { src: "/projects/parkzone/wire-midfi-4.jpg" },
+    { src: "/projects/parkzone/wire-midfi-5.jpg" },
+  ]}
+  caption="Mid-fidelity — the same flow with typographic hierarchy and defined components."
+/>
+
+**Key decision:** from the hand sketches onward I set the **map as the persistent background** throughout the parking flow (meter, parameters, details, payment). The user never loses the context of where they are while deciding how much time to pay for.
+
+## High-fidelity prototype
+
+With the UI kit defined, I built the full prototype in Figma: **~39 screens** including a 4-step onboarding, the parking flow, time extension and account management, connected with real clicks.
+
+<Screens
+  items={[
+    { src: "/projects/parkzone/hifi-00-welcome.png", label: "Welcome" },
+    { src: "/projects/parkzone/hifi-01-inicio.png", label: "Home — map" },
+    { src: "/projects/parkzone/hifi-02-parquimetro.png", label: "Meter" },
+    { src: "/projects/parkzone/hifi-03-parametros.png", label: "Parameters" },
+    { src: "/projects/parkzone/hifi-04-detalles.png", label: "Details" },
+    { src: "/projects/parkzone/hifi-05-pago.png", label: "Payment" },
+    { src: "/projects/parkzone/hifi-06-sesion.png", label: "Active session" },
+    { src: "/projects/parkzone/hifi-07-extender.png", label: "Add time" },
+  ]}
+  caption="Core flow of the prototype — the map stays as context; every screen offers confirm or cancel."
+/>
 
 ## Validation
 
-The high-fidelity Figma prototype was evaluated with a **heuristic evaluation**
-(Nielsen) and **usability tests with 5 users** on a real scenario: park at meter
-A248, pay for 1 hour, check remaining time, extend by 30 minutes and review
-payment history.
+Before calling the design done, I put it through two kinds of validation.
 
-- **127 seconds** on average to complete all 5 tasks
-- **4 of 5 tasks** at 100% success (the fifth: 80%)
-- **4.2/5** average satisfaction
+### Heuristic evaluation (Nielsen)
 
-Findings led to improvements in key-button visibility, text size and system
-feedback.
+I reviewed the prototype against the 10 usability principles. It did well on consistency, match with the real world and user freedom, but I found **two real gaps**:
+
+| Gap | What was missing | How it was addressed |
+|---|---|---|
+| **Error prevention** | Nothing stopped you from trying to pay without selecting a time. | In the coded version, the confirm button is **disabled** until a valid time is set. |
+| **System error handling** | What happens if a payment fails wasn't defined. | Documented as a next step: payment error states (declined, offline) were left out of the MVP scope. |
+
+### Usability testing with 5 users
+
+I designed a real scenario: park at meter A248, pay for 1 hour, check the remaining time, extend by 30 minutes and review the payment history.
+
+<Metrics
+  items={[
+    { value: "127 s", label: "average to complete all 5 tasks (95–180 s)" },
+    { value: "4 of 5", label: "completed every task unaided" },
+    { value: "4.2/5", label: "satisfaction (design 4.5 · ease 4.0 · speed 4.1)" },
+  ]}
+/>
+
+| Task | Success | Avg. time |
+|---|---|---|
+| 1 · Select meter A248 | 100% | 25 s |
+| 2 · Pay for 1 hour | 100% | 35 s |
+| 3 · Check remaining time | 100% | 20 s |
+| 4 · Extend by 30 minutes | **80%** | 37 s |
+| 5 · Review payment history | 100% | 10 s |
+
+| User | Completed | Time | Errors | Comment |
+|---|---|---|---|---|
+| U1 | Yes | 120 s | 2 | “I couldn't easily find the button to extend the time.” |
+| U2 | Yes | 95 s | 0 | “Everything was very intuitive, but I'd add a more visible icon for the history.” |
+| U3 | No (task 4) | 180 s | 3 | “I didn't understand how to confirm the payment.” |
+| U4 | Yes | 110 s | 1 | “The design is clear, but some text is small.” |
+| U5 | Yes | 130 s | 2 | “Easy to use, but it took me a while to find the option to monitor the status.” |
+
+**The most repeated issue:** low visibility of the “Extend time” button and the history icon. So I decided to increase the size and contrast of those specific elements in the next iteration — not redesign the whole flow — because the rest of the metrics confirmed the structure already worked.
 
 ## From prototype to code
 
-The complete prototype — all ~39 screens, including the 4-step onboarding — is
-rebuilt as a **real interactive Next.js app**, presented in an iPhone frame like
-the original prototype. The parking session runs a **live countdown**, the total
-is computed in real time from the rate ($3.50 / 15 min), and heuristic-evaluation
-findings were addressed in code (e.g. error prevention: you cannot confirm
-without selecting a time).
+The Figma prototype solved the problem on paper, but I wanted to prove the solution also held up in a real product: with state, real-time calculations and data that persists between screens.
 
-Design tokens and components follow the architecture of my
-[personal design system](https://design-system-sare1.vercel.app), with the brand
-scale recalculated to ParkZone's teal.
+I rebuilt the full prototype as an **interactive Next.js app**, presented in an iPhone frame like the original prototype. The parking session runs a **live countdown**, the total is calculated in real time from the rate ($3.50 / 15 min), and the heuristic-evaluation findings were addressed directly in the code.
+
+<AppEmbed
+  src="https://parkzone-rho.vercel.app"
+  title="ParkZone — working app"
+  caption="The real app, right here: sign in, pick meter A248, pay for an hour and extend the time. Runs at parkzone-rho.vercel.app."
+/>
+
+## Reflection and learnings
+
+**1 · Fewer users, less certainty.** With only 5 users in testing, the results are exploratory, not conclusive. If I repeated the process, I'd run a second round after applying the fixes instead of assuming a visual tweak is enough. In the card sort I'd also test the category names, not just the grouping.
+
+**2 · The problem wasn't size, it was state.** The user who failed the confirm-payment task didn't say he couldn't see the button — he said he didn't understand how to confirm. Nothing told him his selection was already valid. That's why, in the coded version, the button stays disabled until a valid time is selected, instead of just being made bigger.
+
+**3 · The prototype can “lie”.** In Figma, two layers can look aligned even when positioned by eye. When I coded the meter tooltip with real positions on the map, an offset appeared that the static design never revealed. Same with the hamburger menu: in Figma it was a button with no action; coding it forced me to decide what actually happens when it opens.
+
+**4 · Miguel Hidalgo isn't all of Mexico City.** The meter selector is built for 2 or 3 visible pins at a time. At city scale, with thousands of meters, it would need map clustering and a search by street or neighbourhood. I also assumed a fixed rate; each borough has its own, so that value would have to come from the backend per zone.

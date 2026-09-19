@@ -6,6 +6,8 @@ import { Metrics } from "./Metrics";
 import { Callout } from "./Callout";
 import { Quote } from "./Quote";
 import { Video } from "./Video";
+import { AppEmbed } from "./AppEmbed";
+import { Steps } from "./Steps";
 
 function textOf(node: ReactNode): string {
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -33,4 +35,6 @@ export const mdxComponents = {
   Callout,
   Quote,
   Video,
+  AppEmbed,
+  Steps,
 };
