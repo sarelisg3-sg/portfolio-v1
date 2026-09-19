@@ -9,7 +9,7 @@ export function Screens({
   width = 780,
   height = 1688,
 }: {
-  items: { src: string; label?: string }[];
+  items: { src: string; label?: string; width?: number; height?: number }[];
   caption?: string;
   /** Desktop column count (phones always show 2). */
   cols?: 4 | 5;
@@ -28,9 +28,10 @@ export function Screens({
                 <Image
                   src={s.src}
                   alt={s.label ?? ""}
-                  width={width}
-                  height={height}
-                  sizes="(max-width: 768px) 50vw, 200px"
+                  width={s.width ?? width}
+                  height={s.height ?? height}
+                  sizes="(max-width: 768px) 50vw, 400px"
+                  quality={90}
                   className="w-full h-auto !my-0"
                 />
               </Zoomable>

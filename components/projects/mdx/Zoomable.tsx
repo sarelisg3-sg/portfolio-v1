@@ -9,10 +9,13 @@ import { useCallback, useEffect, useState, type ReactNode } from "react";
  */
 export function Zoomable({
   src,
+  zoomSrc,
   alt,
   children,
 }: {
   src: string;
+  /** Optional larger file to open in the viewer (e.g. a full-page capture). */
+  zoomSrc?: string;
   alt: string;
   children: ReactNode;
 }) {
@@ -76,7 +79,7 @@ export function Zoomable({
           </button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={src}
+            src={zoomSrc ?? src}
             alt={alt}
             onClick={(e) => {
               e.stopPropagation();

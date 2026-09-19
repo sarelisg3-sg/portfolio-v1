@@ -22,6 +22,8 @@ export interface ProjectFrontmatter {
   tags: string[];
   featured: boolean;
   liveUrl?: string;
+  /** Optional label for the live link (defaults to the localized "Try the app") */
+  liveLabel?: string;
   repoUrl?: string;
   legacyRepoUrl?: string;
   externalUrl?: string;

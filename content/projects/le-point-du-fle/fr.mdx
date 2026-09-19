@@ -2,56 +2,311 @@
 slug: le-point-du-fle
 locale: fr
 title: "Refonte de Le Point du FLE"
-tagline: "Refonte UX d'un répertoire de ressources pour apprendre le français"
+tagline: "Refonte UX d'un répertoire de ressources pour apprendre le français — de la recherche à un prototype fonctionnel codé"
 date: "2026-06"
 order: 3
 status: done
 type: redesign
-tags: ["UX Research", "Refonte", "Architecture de l'information", "Tests utilisateurs", "HTML/CSS/JS", "Figma"]
+tags: ["UX Research", "Tree testing", "Architecture de l'information", "Tests d'utilisabilité", "HTML/CSS/JS", "UI Kit"]
 featured: true
 liveUrl: "https://le-point-du-fle.vercel.app/home.html"
+liveLabel: "Essayer le prototype"
 repoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
-pdfUrl: "/projects/le-point-du-fle/case-study.pdf"
+highlights:
+  - value: "100 %"
+    label: "ont trouvé et téléchargé la ressource (5/5)"
+  - value: "77 s"
+    label: "en moyenne pour tout le parcours"
+  - value: "15"
+    label: "itérations après les tests"
 coverImage: "/projects/le-point-du-fle/cover.png"
 coverAlt: "Interface de recherche de ressources pour apprendre le français — refonte de Le Point du FLE"
-description: "Refonte UX d'un répertoire gratuit de ressources pour apprendre le français, centré sur le flux de recherche et de téléchargement de contenus par niveau et compétence."
+description: "Refonte UX de Le Point du FLE, répertoire gratuit de ressources pour apprendre le français : heuristiques, enquête, tree testing, nouvelle architecture, prototype fonctionnel codé et 15 itérations validées avec des utilisateurs (100 % de réussite)."
 ---
 
-> **Périmètre du prototype :** cette refonte couvre le flux de recherche et de téléchargement de ressources. Toutes les sections ne sont pas interactives — certains boutons et pages sont hors périmètre de cette itération.
+<Callout title="Périmètre">
+Refonte indépendante du parcours de recherche et de téléchargement des ressources. Le prototype couvre ce parcours de bout en bout ; les autres sections du site sont hors du périmètre de cette itération.
+</Callout>
 
 ## Le problème
 
-Le Point du FLE est un répertoire gratuit de ressources numériques pour apprendre et enseigner le français langue étrangère. Le site regroupait un grand nombre de contenus utiles, mais son architecture rendait difficile de les trouver rapidement.
+**Le Point du FLE** est un répertoire gratuit de ressources pour apprendre et enseigner le français langue étrangère : des milliers de contenus organisés par thème, niveau et type d'activité. Le contenu a de la valeur ; la structure, non. Des catégories tentaculaires, des intitulés de liens peu descriptifs et des chemins sans hiérarchie obligent à parcourir trop de pages avant d'atteindre une ressource pertinente.
 
-Des catégories trop larges, l'absence de hiérarchie visuelle et le manque de filtres clairs obligeaient les utilisateurs à explorer de trop nombreux chemins avant d'accéder à une ressource pertinente.
+<Figure
+  src="/projects/le-point-du-fle/sitio-original.png"
+  alt="Page d'accueil originale de Le Point du FLE, avec des listes de liens sans hiérarchie visuelle"
+  caption="Le site d'origine : une page d'accueil dense, sans moteur de recherche visible ni chemins clairs par niveau."
+  width={2400}
+  height={1491}
+/>
 
-Cela générait une **surcharge cognitive, une perte de temps et de l'incertitude** au moment de choisir des contenus par niveau, compétence ou type d'activité.
+Une **évaluation heuristique** (les 10 principes de Nielsen) du site existant a relevé 9 problèmes — dont 4 de sévérité maximale :
 
-## Utilisateurs cibles
+- Trop d'informations visibles et une hiérarchie visuelle peu claire.
+- Des catégories larges et redondantes.
+- Des ressources difficiles à localiser par niveau.
+- Pas de chemins clairs pour les enseignants et les apprenants.
 
-La refonte s'est centrée sur les enseignants et apprenants de français qui utilisent des ressources numériques pour préparer des cours, pratiquer de façon autonome ou trouver des contenus spécifiques selon leur niveau.
+**Impact :** enseignants et apprenants perdent du temps à chercher des contenus, doutent de la pertinence de ce qu'ils trouvent et abandonnent la recherche. Pour la plateforme : moins de visites récurrentes, plus d'abandons et une migration vers des concurrents mieux organisés.
 
-Le profil principal identifié était celui des **enseignants de français expérimentés**, qui ont besoin de ressources fiables, organisées et prêtes à l'emploi sans y consacrer trop de temps.
+## Utilisateurs
 
-## Approche de la refonte
+<Metrics
+  items={[
+    { value: "15", label: "réponses à l'enquête exploratoire" },
+    { value: "60 %", label: "enseignants — 46,7 % professeurs de FLE" },
+    { value: "46,7 %", label: "de niveau C1/C2 en français" },
+  ]}
+/>
 
-La proposition a réorganisé l'expérience autour de trois besoins clés :
+L'enquête a confirmé l'utilisateur principal : des **professeurs de français expérimentés** qui cherchent souvent des ressources et ont besoin de contenus fiables, organisés et prêts à l'emploi, sans y consacrer trop de temps. Les apprenants A1–B2 forment le second profil.
 
-1. **Rechercher par niveau** — les apprenants en langues pensent en termes de leur niveau CECR (A1–B2). La nouvelle page d'accueil organise l'accès au contenu directement par niveau.
-2. **Filtrer par type de ressource** — chips de filtre combinables : grammaire, vocabulaire, prononciation, imprimables, chansons et lecture.
-3. **Évaluer rapidement si un contenu convient** — cartes avec métadonnées visibles et prévisualisation de la ressource avant téléchargement.
+<Callout title="Persona — Mariana López, 34 ans, professeure de français dans un collège privé (Mexico)">
+Elle combine méthodes traditionnelles et ressources numériques ; autodidacte en technologie. Elle doit préparer un cours sur le *passé composé* pour des élèves de niveau A2 et télécharger une ressource imprimable en moins de 5 minutes. Elle se frustre de ne pas pouvoir filtrer par niveau ou par type de contenu et de devoir ouvrir plusieurs pages pour savoir si un support convient.
+</Callout>
 
-Une nouvelle architecture de l'information, un flux clair de recherche et téléchargement, et une barre de recherche centralisée accessible dès le premier écran ont été conçus.
+<Figure
+  src="/projects/le-point-du-fle/persona.png"
+  alt="Fiche persona de Mariana López : informations, scénario hypothétique et objectifs"
+  caption="Persona — informations, scénario et attentes de réussite."
+  width={3000}
+  height={523}
+/>
 
-## Validation
+## Recherche
 
-Le prototype a été validé avec **5 utilisateurs réels**.
+### Journey map
 
-- **100 %** ont réussi à trouver une ressource sur le *passé composé* au niveau A2
-- **100 %** ont identifié comment la télécharger
+J'ai parcouru l'expérience complète de Mariana — chercher, explorer les résultats, évaluer l'utilité et télécharger — pour localiser là où elle se rompt. Sur 11 moments, **6 sont des points de friction**, concentrés dans l'exploration et l'évaluation : des titres peu descriptifs, des redirections vers des listes externes et aucun moyen de connaître le niveau d'une ressource sans l'ouvrir.
 
-À partir des tests, **15 itérations** ont été réalisées pour améliorer la navigation par niveau, la précision des résultats, le feedback système et la confiance lors de la sélection d'une ressource.
+<Figure
+  src="/projects/le-point-du-fle/journey-map.png"
+  alt="Journey map de Mariana en quatre phases : chercher, explorer les résultats, évaluer le contenu et télécharger, avec la courbe émotionnelle et les points de contact"
+  caption="Journey map — la courbe émotionnelle chute dans la phase d'exploration et d'évaluation et ne remonte qu'au téléchargement."
+  width={3000}
+  height={1633}
+/>
 
-## État actuel
+<Figure
+  src="/projects/le-point-du-fle/oportunidades.png"
+  alt="Opportunités d'amélioration issues du journey map, liées à chaque point de friction"
+  caption="Chaque friction du parcours est devenue une opportunité concrète : filtres, titres standardisés, aperçu, recommandations."
+  width={3000}
+  height={1348}
+/>
 
-Le prototype navigable (recherche, filtres, prévisualisation et téléchargement) est implémenté et peut être testé via le lien ci-dessus. Une réimplémentation en Next.js est en cours de développement comme prochaine étape du projet.
+### Tree testing
+
+Avant de repenser, j'ai mesuré l'architecture actuelle avec un **tree testing sur UXtweak** : les utilisateurs peuvent-ils localiser des exercices imprimables de niveau A2 en suivant la structure existante ?
+
+<Metrics
+  items={[
+    { value: "30 %", label: "taux de réussite" },
+    { value: "70 %", label: "taux d'erreur — tous par chemin direct" },
+    { value: "33 s", label: "temps médian (19 s – 2 min 13 s)" },
+  ]}
+/>
+
+<Figure
+  src="/projects/le-point-du-fle/tree-testing.png"
+  alt="Résultats du tree testing sur UXtweak : 30 % de réussite, 70 % d'erreur, 100 % de directness"
+  caption="100 % de directness avec 70 % d'erreur : les utilisateurs n'hésitaient pas — ils allaient avec assurance vers la mauvaise catégorie. C'est l'architecture qui communiquait mal, pas l'utilisateur."
+  width={1598}
+  height={1014}
+/>
+
+### Priorisation
+
+Les opportunités ont été placées sur une matrice **souhaitable × faisable** pour décider de ce qui entrait dans cette itération.
+
+<Figure
+  src="/projects/le-point-du-fle/matriz-priorizacion.png"
+  alt="Matrice de priorisation souhaitable vs faisable avec les opportunités d'amélioration en quatre quadrants"
+  caption="Priorité 1 : standardiser les titres avec niveau, format et thème · consolider les ressources sur la plateforme · étiquettes visibles. Priorité 2 : recherche avancée avec filtres · recommandations."
+  width={2600}
+  height={2625}
+/>
+
+## Constats et insights
+
+| # | Insight | Preuves |
+|---|---|---|
+| **I1** | Les utilisateurs cherchent à partir de besoins pédagogiques (niveau, compétence, thème), pas à partir de la structure du site. | Enquête · Journey map · Tree testing |
+| **I2** | L'architecture exige trop d'effort cognitif pour localiser les contenus. | Tree testing : 70 % d'erreur · Heuristiques |
+| **I3** | Les filtres sont essentiels pour réduire le temps et l'effort de recherche. | Enquête · Besoins identifiés |
+| **I4** | La classification par niveau / compétence / type correspond au modèle mental de l'utilisateur. | Enquête · Profil identifié |
+| **I5** | Une navigation plus guidée renforce la confiance et facilite la découverte. | Heuristiques · Tree testing · Journey map |
+
+**Hypothèse de travail :** si les ressources sont organisées par niveau, compétence et type, et si les filtres sont visibles et fonctionnels, les utilisateurs trouveront les contenus plus vite, avec moins d'effort cognitif et plus de confiance dans leur choix.
+
+## Décisions de design
+
+| Décision | Pourquoi |
+|---|---|
+| **D1 · Navigation structurée par niveau (A1–B2)** | Les utilisateurs organisent mentalement les ressources selon le niveau d'apprentissage. |
+| **D2 · Filtres par type, compétence et thème** | Ils ont besoin de mécanismes pour réduire le volume d'information. |
+| **D3 · La recherche comme point d'entrée principal** | Un accès direct, sans dépendre d'une exploration étendue. |
+| **D4 · Réorganiser l'architecture de l'information** | La recherche a montré la difficulté à identifier des chemins clairs. |
+| **D5 · Hiérarchie visuelle plus claire et cohérente** | Une structure visuelle organisée réduit la charge cognitive. |
+| **D6 · Métadonnées visibles par ressource (niveau, type, compétence)** | Les utilisateurs doivent pouvoir juger rapidement si une ressource convient. |
+
+La nouvelle architecture réorganise le contenu par **niveau (A1–B2), type de ressource, compétence, public et thème**, et le parcours principal tient en six étapes :
+
+**Architecture de l'information, avant et après.** L'arbre d'origine regroupait par section du site, avec des branches profondes et répétées ; le nouveau s'organise par niveau, type de ressource et compétence, avec moins de profondeur et des chemins uniques.
+
+<div>
+  <Figure src="/projects/le-point-du-fle/ia-original.png" alt="Arbre de l'architecture de l'information d'origine de Le Point du FLE" caption="Architecture d'origine — branches profondes et catégories répétées (faites défiler pour l'explorer)." width={3600} height={13452} maxHeight={640} scrollHint="Faites défiler" />
+  <Figure src="/projects/le-point-du-fle/ia-nueva.png" alt="Arbre de la nouvelle architecture de l'information" caption="Nouvelle architecture — niveaux A1–B2, type de ressource et compétence comme axes." width={5000} height={8397} maxHeight={640} scrollHint="Faites défiler" />
+</div>
+
+<Figure
+  src="/projects/le-point-du-fle/taskflow.png"
+  alt="Task flow du parcours principal : entrer, chercher, voir les résultats, filtrer, ouvrir la ressource, télécharger, confirmation"
+  caption="Accueil → recherche ou choix du niveau → résultats → aperçu de la ressource → téléchargement → confirmation."
+  width={4000}
+  height={954}
+/>
+
+**Wireflow.** Chaque étape du parcours avec son écran basse fidélité et ses décisions — Tâche 1 : trouver un exercice sur le *passé composé* A2 ; Tâche 2 : identifier comment le télécharger.
+
+<Figure
+  src="/projects/le-point-du-fle/wireflow-tarea-1.png"
+  alt="Wireflow de la tâche 1 : trouver un exercice de passé composé de niveau A2"
+  caption="Wireflow — Tâche 1 (faites défiler vers la droite)."
+  width={12000}
+  height={2916}
+  scroll
+  scrollWidth={3200}
+  scrollHint="Faites défiler"
+/>
+
+<Figure
+  src="/projects/le-point-du-fle/wireflow-tarea-2.png"
+  alt="Wireflow de la tâche 2 : identifier comment télécharger la ressource"
+  caption="Wireflow — Tâche 2 (faites défiler vers la droite)."
+  width={14000}
+  height={1423}
+  scroll
+  scrollWidth={5000}
+  scrollHint="Faites défiler"
+/>
+
+## De la maquette au système visuel
+
+Les premières maquettes ont matérialisé la proposition avant de la tester : un accueil avec recherche et niveaux, des résultats avec filtres, un aperçu de la ressource et une confirmation de téléchargement.
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure src="/projects/le-point-du-fle/mockup-home-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-home.jpg" alt="Maquette initiale de l'accueil" caption="Accueil — un hero trop haut repoussait les niveaux hors de la vue." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-resultados-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-resultados.jpg" alt="Maquette initiale des résultats de recherche" caption="Résultats — filtres décoratifs et une ressource B1 parmi celles de A2." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-preview-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-preview.jpg" alt="Maquette initiale de l'aperçu de la ressource" caption="Aperçu — deux boutons « Télécharger » et aucune source de la ressource." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-success-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-success.jpg" alt="Maquette initiale de la confirmation de téléchargement" caption="Téléchargement — confirmation sans véritable aperçu du PDF." width={1600} height={1000} />
+</div>
+
+Maquettes initiales — la version soumise aux tests d'utilisabilité, avant les 15 itérations.
+
+Le **UI Kit** définit le système : clarté, ordre et confiance. Montserrat (600) pour les titres, Inter (400) pour le corps et l'interface ; bleu principal `#3B55E6`, secondaire `#6684FE`, fond `#EFF4FF`, texte `#334155` / `#64748B`, accent `#FFDE92`. Il comprend boutons, cartes de ressource, chips de filtre, menus déroulants, accordéons, iconographie (Material Symbols), espacements, rayons et ombres — le tout implémenté sous forme de tokens dans le code du prototype.
+
+<Figure
+  src="/projects/le-point-du-fle/ui-kit.jpg"
+  alt="UI Kit de Le Point du FLE : tokens de couleur, typographies, boutons, cartes, filtres, accordéons, icônes et espacements"
+  caption="UI Kit complet, documenté comme une page vivante au sein même du prototype."
+  width={2000}
+  height={7786}
+/>
+
+## Validation avec les utilisateurs
+
+**Plan :** 5 participants (professeurs de français et apprenants A1–B2), test à distance modéré en visioconférence, sessions individuelles, sur le prototype HTML publié. Tâches : **T1** trouver un exercice sur le *passé composé* de niveau A2 · **T2** identifier comment le télécharger pour la classe.
+
+<Metrics
+  items={[
+    { value: "100 %", label: "ont trouvé une ressource (5/5)" },
+    { value: "100 %", label: "ont identifié le téléchargement (5/5)" },
+    { value: "77,2 s", label: "parcours moyen — 62,6 s de recherche · 14,6 s de téléchargement" },
+  ]}
+/>
+
+| Utilisateur | Temps total |
+|---|---|
+| U1 | 107 s |
+| U2 | 107 s |
+| U3 | **36 s** — le plus rapide |
+| U4 | 85 s |
+| U5 | 51 s |
+
+Tous ont accompli les deux tâches, mais les sessions ont révélé des attentes que le prototype ne satisfaisait pas encore :
+
+<Quote who="Participant — à propos des filtres">
+Je m'attendais à ce que le clic fonctionne et qu'il m'indique que j'avais déjà choisi ceci.
+</Quote>
+
+<Quote who="Participant — à propos de la navigation par niveau">
+C'est déroutant que ça n'ouvre pas les éléments par niveau et qu'il faille le chercher spécifiquement.
+</Quote>
+
+<Quote who="Participant — à propos de la précision des résultats">
+Ça m'a donné un exercice de B1 alors que j'avais demandé A2.
+</Quote>
+
+<Quote who="Participant — appréciation générale">
+J'ai beaucoup aimé que tout soit bien organisé.
+</Quote>
+
+## 15 itérations fondées sur des preuves
+
+Chaque changement répond à quelque chose d'observé pendant les sessions, pas à une préférence :
+
+| # | Changement | Ce qui l'a motivé |
+|---|---|---|
+| 1 | Moins d'espace dans le hero | *Content peeking* : les utilisateurs ne voyaient pas le contenu sous la barre de recherche. |
+| 2 | Carte A2 transformée en lien navigable | *False affordance* : elle semblait cliquable mais ne faisait rien. |
+| 3 | Résultats cohérents avec « passé composé A2 » | Cohérence entre le terme recherché et les résultats affichés. |
+| 4 | Niveau corrigé de B1 à A2 sur une carte | Précision par niveau : critique pour les enseignants. |
+| 5 | Pagination et compteur de résultats | Orientation : les utilisateurs voulaient savoir combien de ressources existent. |
+| 6 | Filtres avec menus déroulants fonctionnels | Les filtres décoratifs généraient frustration et perte de confiance. |
+| 7 | « Compréhension orale » → « Document sonore » | Distinguer la compétence linguistique du format de la ressource. |
+| 8 | De 3 cartes à 15 résultats | Cohérence avec « 15 résultats par page » et meilleure exploration. |
+| 9 | Nouvelle page de niveau A2 | Chemin naturel : les utilisateurs s'attendaient à explorer d'abord par niveau. |
+| 10 | Recherche contextuelle dans A2 | Respecter plus d'un modèle mental de recherche. |
+| 11 | Filtres dans A2 sans le filtre de niveau | Minimalisme : le filtre de niveau était redondant dans la page A2. |
+| 12 | 15 cartes variées dans A2 | La variété des formats renforce la proposition de valeur du site. |
+| 13 | Suppression du bouton « Télécharger » en double | Loi de Hick : dupliquer les CTA crée de l'ambiguïté. |
+| 14 | Accordéon « Source » avec auteur et organisation | Transparence : les utilisateurs veulent savoir d'où vient le contenu. |
+| 15 | Modale avec le vrai PDF à l'ouverture du fichier | Boucle d'action bouclée et confirmation de la ressource téléchargée. |
+
+**Avant → après :** carte A2 sans action → page de niveau · résultats incohérents → cohérents avec la recherche · filtres décoratifs → menus déroulants avec états actifs · 3 résultats → 15 · deux boutons de téléchargement → un seul CTA contextuel · sans source → accordéon avec l'auteur · sans aperçu → vrai PDF intégré.
+
+## Prototype fonctionnel
+
+Le prototype final est construit en **HTML, CSS et JavaScript** et publié sur Vercel : il intègre les 15 améliorations, avec navigation par niveau, filtres fonctionnels, 15 résultats cohérents, source de la ressource, aperçu réel et retour de téléchargement. Essayez-le ici même :
+
+<AppEmbed
+  src="https://le-point-du-fle.vercel.app/home.html"
+  title="Le Point du FLE — prototype fonctionnel"
+  openLabel="Ouvrir dans un nouvel onglet"
+  desktopWidth={1280}
+  height={900}
+  caption="Testez le parcours complet : cherchez « passé composé », choisissez le niveau A2, ouvrez une ressource et téléchargez-la."
+/>
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure src="/projects/le-point-du-fle/proto-home-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-home.jpg" alt="Accueil du prototype final" caption="Accueil — recherche et niveaux A1–B2." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-a2-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-a2.jpg" alt="Page du niveau A2 du prototype final" caption="Niveau A2 — recherche contextuelle et filtres sans le niveau redondant." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-resultados-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-resultados.jpg" alt="Résultats de recherche du prototype final" caption="Résultats — 15 ressources cohérentes avec « passé composé A2 », filtres fonctionnels." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-preview-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-preview.jpg" alt="Aperçu de la ressource dans le prototype final" caption="Aperçu — métadonnées, accordéon « Source » et vrai PDF." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-success-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-success.jpg" alt="Confirmation de téléchargement dans le prototype final" caption="Téléchargement — confirmation et ressources similaires." width={1600} height={1000} />
+</div>
+
+Agrandissez n'importe quel écran pour voir la page complète.
+
+## Apprentissages et prochaines étapes
+
+Les itérations ont prouvé qu'**une solution ne fonctionne pas simplement parce qu'elle paraît claire** : les filtres « avaient l'air » bien et ont pourtant généré de la frustration parce qu'ils ne répondaient pas. Chaque décision de design doit répondre à un besoin observé, à un comportement réel ou à une hypothèse vérifiable.
+
+**Prochaines étapes :**
+
+- Une seconde session de tests d'utilisabilité sur le prototype itéré, en mesurant si les clics erronés et le temps de recherche diminuent.
+- Explorer des favoris ou des dossiers pour les enseignants.
+- Étendre le système de recommandations de ressources liées.
+- Valider l'accessibilité visuelle et la navigation responsive.
+- Définir des métriques d'usage réelles pour la prochaine phase d'implémentation.

@@ -120,7 +120,7 @@ export function ProjectCard({
               rel="noopener noreferrer"
               className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
             >
-              {isExternal ? t("view_site") : t("view_live")} ↗
+              {isExternal ? t("view_site") : (frontmatter.liveLabel ?? t("view_live"))} ↗
             </a>
           )}
 

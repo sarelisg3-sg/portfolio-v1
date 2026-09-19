@@ -63,7 +63,9 @@ export default async function ProjectPage({
 
   // Primary CTA: the most "real" artefact available — live site/app first, then prototype.
   const primaryHref = frontmatter.externalUrl ?? frontmatter.liveUrl ?? null;
-  const primaryLabel = frontmatter.externalUrl ? t("view_site") : t("view_live");
+  const primaryLabel = frontmatter.externalUrl
+    ? t("view_site")
+    : (frontmatter.liveLabel ?? t("view_live"));
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-16 lg:grid lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-16">

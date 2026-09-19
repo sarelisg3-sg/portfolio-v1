@@ -2,56 +2,311 @@
 slug: le-point-du-fle
 locale: en
 title: "Le Point du FLE Redesign"
-tagline: "UX redesign of a resource directory for learning French"
+tagline: "UX redesign of a French-learning resource directory — from research to a working coded prototype"
 date: "2026-06"
 order: 3
 status: done
 type: redesign
-tags: ["UX Research", "Redesign", "Information Architecture", "Usability Testing", "HTML/CSS/JS", "Figma"]
+tags: ["UX Research", "Tree testing", "Information Architecture", "Usability Testing", "HTML/CSS/JS", "UI Kit"]
 featured: true
 liveUrl: "https://le-point-du-fle.vercel.app/home.html"
+liveLabel: "Try the prototype"
 repoUrl: "https://github.com/sarelisg3-sg/le-point-du-fle"
-pdfUrl: "/projects/le-point-du-fle/case-study.pdf"
+highlights:
+  - value: "100%"
+    label: "found and downloaded the resource (5/5)"
+  - value: "77 s"
+    label: "average for the full flow"
+  - value: "15"
+    label: "iterations after testing"
 coverImage: "/projects/le-point-du-fle/cover.png"
 coverAlt: "Search interface for French learning resources — Le Point du FLE redesign"
-description: "UX redesign of a free French learning resource directory, focused on the search and download flow for materials organized by level and language skill."
+description: "UX redesign of Le Point du FLE, a free directory of French-learning resources: heuristics, survey, tree testing, new architecture, a working coded prototype and 15 user-validated iterations (100% success)."
 ---
 
-> **Prototype scope:** this redesign covers the resource search and download flow. Not all sections are interactive — some buttons and pages are outside the scope of this iteration.
+<Callout title="Scope">
+Independent redesign of the resource search-and-download flow. The prototype covers that flow end to end; other sections of the site are out of scope for this iteration.
+</Callout>
 
 ## The problem
 
-Le Point du FLE is a free directory of digital resources for learning and teaching French as a foreign language. The site gathered a large number of useful materials, but its architecture made them hard to find quickly.
+**Le Point du FLE** is a free directory of resources for learning and teaching French as a foreign language: thousands of materials organised by topic, level and activity type. The content is valuable; the structure isn't. Sprawling categories, vague link titles and paths with no hierarchy force users through too many pages before reaching a relevant resource.
 
-Broad categories, lack of visual hierarchy, and the absence of clear filters forced users to explore too many paths before reaching a relevant resource.
+<Figure
+  src="/projects/le-point-du-fle/sitio-original.png"
+  alt="Original Le Point du FLE home page, with lists of links and no visual hierarchy"
+  caption="The original site: a dense home page with no visible search and no clear paths by level."
+  width={2400}
+  height={1491}
+/>
 
-This created **cognitive overload, wasted time, and uncertainty** when selecting materials by level, skill, or activity type.
+A **heuristic evaluation** (Nielsen's 10 principles) of the existing site surfaced 9 problems — 4 of them at maximum severity:
 
-## Target users
+- Too much visible information and an unclear visual hierarchy.
+- Broad, redundant categories.
+- Hard to locate resources by level.
+- No clear paths for teachers and students.
 
-The redesign focused on French teachers and students who use digital resources to prepare lessons, practice independently, or find specific materials for their level.
+**Impact:** teachers and students waste time hunting for materials, doubt whether what they find is relevant, and abandon the search. For the platform: lower return visits, higher drop-off and migration to better-organised competitors.
 
-The primary profile identified was **experienced French teachers** who need reliable, organized, ready-to-use resources without spending too much time searching.
+## Users
 
-## Redesign approach
+<Metrics
+  items={[
+    { value: "15", label: "responses to the exploratory survey" },
+    { value: "60%", label: "teachers — 46.7% FLE teachers" },
+    { value: "46.7%", label: "with C1/C2 French" },
+  ]}
+/>
 
-The proposal reorganized the experience around three key needs:
+The survey confirmed the primary user: **experienced French teachers** who look for resources often and need reliable, organised, ready-to-use materials without sinking time into the search. A1–B2 students are the secondary profile.
 
-1. **Search by level** — language learners think in terms of their CEFR level (A1–B2). The new homepage organizes content access directly by level.
-2. **Filter by resource type** — combinable filter chips for grammar, vocabulary, pronunciation, printables, songs, and reading.
-3. **Quickly evaluate whether a material fits** — cards with visible metadata and a resource preview before downloading.
+<Callout title="Persona — Mariana López, 34, French teacher at a private secondary school (Mexico City)">
+Blends traditional methods with digital resources; self-taught in tech. Needs to prepare a class on the *passé composé* for A2 students and download a printable resource in under 5 minutes. Gets frustrated when she can't filter by level or content type and has to open several pages to know whether a material is any good.
+</Callout>
 
-A new information architecture, a clear search-and-download flow, and a centralized search bar accessible from the first screen were designed.
+<Figure
+  src="/projects/le-point-du-fle/persona.png"
+  alt="Persona card for Mariana López: details, hypothetical scenario and goals"
+  caption="Persona — details, scenario and success expectations."
+  width={3000}
+  height={523}
+/>
 
-## Validation
+## Research
 
-The prototype was validated with **5 real users**.
+### Journey map
 
-- **100%** successfully found a resource on *passé composé* at A2 level
-- **100%** identified how to download it
+I walked Mariana's full experience — search, explore results, assess usefulness, download — to locate where it breaks. Of 11 moments, **6 are friction points**, concentrated in exploring and assessing: vague titles, redirects to external lists, and no way to know a resource's level without opening it.
 
-Based on the tests, **15 iterations** were made focused on improving level navigation, search result accuracy, system feedback, and user confidence when selecting a resource.
+<Figure
+  src="/projects/le-point-du-fle/journey-map.png"
+  alt="Mariana's journey map in four phases: search, explore results, assess the material and download, with the emotional curve and touchpoints"
+  caption="Journey map — the emotional curve drops in the explore-and-assess phase and only recovers on download."
+  width={3000}
+  height={1633}
+/>
 
-## Current status
+<Figure
+  src="/projects/le-point-du-fle/oportunidades.png"
+  alt="Improvement opportunities derived from the journey map, tied to each friction point"
+  caption="Every friction in the journey became a concrete opportunity: filters, standardised titles, preview, recommendations."
+  width={3000}
+  height={1348}
+/>
 
-The navigable prototype (search, filters, preview and download) is implemented and can be tried at the link above. A Next.js reimplementation is in development as the project's next step.
+### Tree testing
+
+Before redesigning, I measured the current architecture with **tree testing in UXtweak**: can users locate printable A2 exercises by following the existing structure?
+
+<Metrics
+  items={[
+    { value: "30%", label: "success rate" },
+    { value: "70%", label: "error rate — all by direct path" },
+    { value: "33 s", label: "median time (19 s – 2 min 13 s)" },
+  ]}
+/>
+
+<Figure
+  src="/projects/le-point-du-fle/tree-testing.png"
+  alt="Tree testing results in UXtweak: 30% success, 70% error, 100% directness"
+  caption="100% directness with 70% error: users didn't hesitate — they went confidently to the wrong category. The architecture was miscommunicating, not the user."
+  width={1598}
+  height={1014}
+/>
+
+### Prioritisation
+
+The opportunities were plotted on a **desirable × feasible** matrix to decide what made it into this iteration.
+
+<Figure
+  src="/projects/le-point-du-fle/matriz-priorizacion.png"
+  alt="Desirable vs. feasible prioritisation matrix with the improvement opportunities in four quadrants"
+  caption="Priority 1: standardise titles with level, format and topic · consolidate resources in the platform · visible tags. Priority 2: advanced search with filters · recommendations."
+  width={2600}
+  height={2625}
+/>
+
+## Findings and insights
+
+| # | Insight | Evidence |
+|---|---|---|
+| **I1** | Users search from pedagogical needs (level, skill, topic), not from the site's structure. | Survey · Journey map · Tree testing |
+| **I2** | The architecture demands too much cognitive effort to locate materials. | Tree testing: 70% error · Heuristics |
+| **I3** | Filters are essential to reduce search time and effort. | Survey · Identified needs |
+| **I4** | Classifying by level / skill / type matches the user's mental model. | Survey · Identified profile |
+| **I5** | More guided navigation raises confidence and eases discovery. | Heuristics · Tree testing · Journey map |
+
+**Working hypothesis:** if resources are organised by level, skill and type, and filters are visible and functional, users will find materials faster, with less cognitive effort and more confidence in their choice.
+
+## Design decisions
+
+| Decision | Why |
+|---|---|
+| **D1 · Navigation structured by level (A1–B2)** | Users mentally organise resources by learning level. |
+| **D2 · Filters by type, skill and topic** | They need mechanisms to cut down the volume of information. |
+| **D3 · Search as the main entry point** | Direct access without relying on extensive browsing. |
+| **D4 · Reorganise the information architecture** | Research showed difficulty identifying clear paths. |
+| **D5 · Clearer, more consistent visual hierarchy** | An organised visual structure reduces cognitive load. |
+| **D6 · Visible metadata per resource (level, type, skill)** | Users need to quickly judge whether a resource fits. |
+
+The new architecture reorganises content by **level (A1–B2), resource type, skill, audience and topic**, and the main flow comes down to six steps:
+
+**Information architecture, before and after.** The original tree grouped by site section, with deep, repeated branches; the new one is organised by level, resource type and skill, with less depth and unique paths.
+
+<div>
+  <Figure src="/projects/le-point-du-fle/ia-original.png" alt="Original information architecture tree of Le Point du FLE" caption="Original architecture — deep branches and repeated categories (scroll to explore)." width={3600} height={13452} maxHeight={640} scrollHint="Scroll" />
+  <Figure src="/projects/le-point-du-fle/ia-nueva.png" alt="New information architecture tree" caption="New architecture — levels A1–B2, resource type and skill as axes." width={5000} height={8397} maxHeight={640} scrollHint="Scroll" />
+</div>
+
+<Figure
+  src="/projects/le-point-du-fle/taskflow.png"
+  alt="Task flow of the main path: enter, search, see results, filter, open the resource, download, confirmation"
+  caption="Home → search or level selection → results → resource preview → download → confirmation."
+  width={4000}
+  height={954}
+/>
+
+**Wireflow.** Each step of the flow with its low-fidelity screen and decisions — Task 1: find an A2 *passé composé* exercise; Task 2: work out how to download it.
+
+<Figure
+  src="/projects/le-point-du-fle/wireflow-tarea-1.png"
+  alt="Wireflow for task 1: find an A2-level passé composé exercise"
+  caption="Wireflow — Task 1 (scroll to the right)."
+  width={12000}
+  height={2916}
+  scroll
+  scrollWidth={3200}
+  scrollHint="Scroll"
+/>
+
+<Figure
+  src="/projects/le-point-du-fle/wireflow-tarea-2.png"
+  alt="Wireflow for task 2: work out how to download the resource"
+  caption="Wireflow — Task 2 (scroll to the right)."
+  width={14000}
+  height={1423}
+  scroll
+  scrollWidth={5000}
+  scrollHint="Scroll"
+/>
+
+## From mockup to visual system
+
+The first mockups materialised the proposal before testing it: a home with search and levels, results with filters, a resource preview and a download confirmation.
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure src="/projects/le-point-du-fle/mockup-home-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-home.jpg" alt="Initial mockup of the home page" caption="Home — a tall hero pushed the levels out of view." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-resultados-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-resultados.jpg" alt="Initial mockup of search results" caption="Results — decorative filters and a B1 resource among the A2 ones." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-preview-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-preview.jpg" alt="Initial mockup of the resource preview" caption="Preview — two “Télécharger” buttons and no resource source." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/mockup-success-fold.jpg" zoomSrc="/projects/le-point-du-fle/mockup-success.jpg" alt="Initial mockup of the download confirmation" caption="Download — confirmation without a real PDF preview." width={1600} height={1000} />
+</div>
+
+Initial mockups — the version taken into usability testing, before the 15 iterations.
+
+The **UI Kit** defines the system: clarity, order and trust. Montserrat (600) for headings, Inter (400) for body and UI; primary blue `#3B55E6`, secondary `#6684FE`, background `#EFF4FF`, text `#334155` / `#64748B`, accent `#FFDE92`. It includes buttons, resource cards, filter chips, dropdowns, accordions, iconography (Material Symbols), spacing, radii and shadows — all implemented as tokens in the prototype's code.
+
+<Figure
+  src="/projects/le-point-du-fle/ui-kit.jpg"
+  alt="Le Point du FLE UI Kit: colour tokens, typography, buttons, cards, filters, accordions, icons and spacing"
+  caption="Full UI Kit, documented as a living page inside the prototype itself."
+  width={2000}
+  height={7786}
+/>
+
+## Validation with users
+
+**Plan:** 5 participants (French teachers and A1–B2 students), moderated remote test over video call, individual sessions, on the published HTML prototype. Tasks: **T1** find an A2-level exercise on the *passé composé* · **T2** work out how to download it for class.
+
+<Metrics
+  items={[
+    { value: "100%", label: "found a resource (5/5)" },
+    { value: "100%", label: "identified the download (5/5)" },
+    { value: "77.2 s", label: "average flow — 62.6 s searching · 14.6 s downloading" },
+  ]}
+/>
+
+| User | Total time |
+|---|---|
+| U1 | 107 s |
+| U2 | 107 s |
+| U3 | **36 s** — fastest |
+| U4 | 85 s |
+| U5 | 51 s |
+
+Everyone completed both tasks, but the sessions revealed expectations the prototype didn't yet meet:
+
+<Quote who="Participant — on the filters">
+I expected the click to work and to give me some indicator that I'd already chosen this.
+</Quote>
+
+<Quote who="Participant — on navigating by level">
+It's confusing that it doesn't open the items by level and you have to search for it specifically.
+</Quote>
+
+<Quote who="Participant — on result accuracy">
+It gave me a B1 exercise when I asked for A2.
+</Quote>
+
+<Quote who="Participant — overall">
+I really liked that it comes all nicely organised.
+</Quote>
+
+## 15 evidence-based iterations
+
+Every change answers something observed in the sessions, not a preference:
+
+| # | Change | What prompted it |
+|---|---|---|
+| 1 | Less hero spacing | *Content peeking*: users didn't see content below the search box. |
+| 2 | A2 card turned into a navigable link | *False affordance*: it looked clickable but did nothing. |
+| 3 | Results consistent with “passé composé A2” | Consistency between the search term and the results shown. |
+| 4 | Level fixed from B1 to A2 on a card | Level accuracy: critical for teachers. |
+| 5 | Pagination and results counter | Orientation: users wanted to know how many resources there are. |
+| 6 | Filters with working dropdowns | Decorative filters caused frustration and loss of trust. |
+| 7 | “Compréhension orale” → “Document sonore” | Separate language skill from resource format. |
+| 8 | From 3 cards to 15 results | Consistent with “15 résultats par page” and better exploration. |
+| 9 | New A2 level page | Natural path: users expected to browse by level first. |
+| 10 | Contextual search inside A2 | Respect more than one search mental model. |
+| 11 | Filters on A2 without the level filter | Minimalism: the level filter was redundant inside A2. |
+| 12 | 15 varied cards on A2 | Variety of formats improves the site's value proposition. |
+| 13 | Removed the duplicate “Télécharger” button | Hick's law: duplicate CTAs create ambiguity. |
+| 14 | “Source” accordion with author and organisation | Transparency: users want to know where the material comes from. |
+| 15 | Modal with the real PDF when opening the file | Closes the action loop and confirms the downloaded resource. |
+
+**Before → after:** A2 card with no action → level page · inconsistent results → consistent with the search · decorative filters → dropdowns with active states · 3 results → 15 · two download buttons → one contextual CTA · no source → accordion with author · no preview → real embedded PDF.
+
+## Working prototype
+
+The final prototype is built in **HTML, CSS and JavaScript** and published on Vercel: it integrates the 15 improvements, with navigation by level, working filters, 15 consistent results, resource source, real preview and download feedback. Use it right here:
+
+<AppEmbed
+  src="https://le-point-du-fle.vercel.app/home.html"
+  title="Le Point du FLE — working prototype"
+  openLabel="Open in a new tab"
+  desktopWidth={1280}
+  height={900}
+  caption="Try the full flow: search “passé composé”, pick level A2, open a resource and download it."
+/>
+
+<div className="grid md:grid-cols-2 gap-6">
+  <Figure src="/projects/le-point-du-fle/proto-home-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-home.jpg" alt="Final prototype home" caption="Home — search and levels A1–B2." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-a2-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-a2.jpg" alt="Final prototype A2 level page" caption="Level A2 — contextual search and filters without the redundant level." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-resultados-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-resultados.jpg" alt="Final prototype search results" caption="Results — 15 resources consistent with “passé composé A2”, working filters." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-preview-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-preview.jpg" alt="Final prototype resource preview" caption="Preview — metadata, “Source” accordion and real PDF." width={1600} height={1000} />
+  <Figure src="/projects/le-point-du-fle/proto-success-fold.jpg" zoomSrc="/projects/le-point-du-fle/proto-success.jpg" alt="Final prototype download confirmation" caption="Download — confirmation and similar resources." width={1600} height={1000} />
+</div>
+
+Enlarge any screen to see the full page.
+
+## Learnings and next steps
+
+The iterations proved that **a solution doesn't work just because it looks clear**: the filters “looked” fine and still caused frustration because they didn't respond. Every design decision must answer an observed need, a real behaviour or a testable hypothesis.
+
+**Next steps:**
+
+- A second round of usability testing on the iterated prototype, measuring whether wrong clicks and search time go down.
+- Explore favourites or folders for teachers.
+- Expand the related-resources recommendation system.
+- Validate visual accessibility and responsive navigation.
+- Define real usage metrics for the next implementation phase.

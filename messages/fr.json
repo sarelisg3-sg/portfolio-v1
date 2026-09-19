@@ -35,7 +35,7 @@
       "frontend": "Frontend",
       "ux_deep_dive": "Recherche → Produit",
       "ux_research": "UX Research",
-      "external": "Projet externe",
+      "external": "Client",
       "design_system": "Design System"
     },
     "view_prototype": "Voir le prototype Figma",
@@ -87,7 +87,7 @@
   },
   "certifications": {
     "section_title": "Certifications",
-    "section_subtitle": "Cours et certifications que j'ai obtenus.",
+    "section_subtitle": "Certifications en UX, UI et IA.",
     "view_credential": "Voir le certificat",
     "credential_id": "ID de la certification"
   }
